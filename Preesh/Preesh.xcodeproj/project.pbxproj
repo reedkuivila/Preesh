@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4B41A4E62A1C14C30005A45A /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41A4E52A1C14C30005A45A /* CustomColor.swift */; };
+		4B41A4E92A1C1C540005A45A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41A4E82A1C1C540005A45A /* ImagePicker.swift */; };
+		4B41A4EC2A1C1E240005A45A /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41A4EB2A1C1E240005A45A /* ProfileModel.swift */; };
+		4B41A4EE2A1C21790005A45A /* ProfileImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B41A4ED2A1C21790005A45A /* ProfileImage.swift */; };
 		4BF5BBC32A16E622008C5528 /* PreeshApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC22A16E622008C5528 /* PreeshApp.swift */; };
 		4BF5BBC52A16E622008C5528 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC42A16E622008C5528 /* ContentView.swift */; };
 		4BF5BBC72A16E624008C5528 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC62A16E624008C5528 /* Assets.xcassets */; };
@@ -19,6 +22,9 @@
 
 /* Begin PBXFileReference section */
 		4B41A4E52A1C14C30005A45A /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
+		4B41A4E82A1C1C540005A45A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		4B41A4EB2A1C1E240005A45A /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		4B41A4ED2A1C21790005A45A /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		4BF5BBBF2A16E622008C5528 /* Preesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF5BBC22A16E622008C5528 /* PreeshApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreeshApp.swift; sourceTree = "<group>"; };
 		4BF5BBC42A16E622008C5528 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -48,6 +54,23 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		4B41A4E72A1C1C450005A45A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				4B41A4E82A1C1C540005A45A /* ImagePicker.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		4B41A4EA2A1C1E170005A45A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4B41A4EB2A1C1E240005A45A /* ProfileModel.swift */,
+				4B41A4ED2A1C21790005A45A /* ProfileImage.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		4BF5BBB62A16E622008C5528 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +90,11 @@
 		4BF5BBC12A16E622008C5528 /* Preesh */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5BBC22A16E622008C5528 /* PreeshApp.swift */,
+				4B41A4EA2A1C1E170005A45A /* Models */,
+				4B41A4E72A1C1C450005A45A /* Helpers */,
 				4B41A4E42A1C149C0005A45A /* Custom */,
 				4BF5BBD02A16E62F008C5528 /* Views */,
-				4BF5BBC22A16E622008C5528 /* PreeshApp.swift */,
-				4BF5BBC42A16E622008C5528 /* ContentView.swift */,
 				4BF5BBC62A16E624008C5528 /* Assets.xcassets */,
 				4BF5BBC82A16E624008C5528 /* Preview Content */,
 			);
@@ -88,6 +112,7 @@
 		4BF5BBD02A16E62F008C5528 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4BF5BBC42A16E622008C5528 /* ContentView.swift */,
 				4BF5BBD12A16E641008C5528 /* ProfileView.swift */,
 				4BF5BBD32A16E672008C5528 /* HomeFeedView.swift */,
 				4BF5BBD52A16EB79008C5528 /* TabBarView.swift */,
@@ -165,12 +190,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B41A4E92A1C1C540005A45A /* ImagePicker.swift in Sources */,
 				4BF5BBC52A16E622008C5528 /* ContentView.swift in Sources */,
 				4BF5BBD42A16E672008C5528 /* HomeFeedView.swift in Sources */,
 				4BF5BBD22A16E641008C5528 /* ProfileView.swift in Sources */,
+				4B41A4EE2A1C21790005A45A /* ProfileImage.swift in Sources */,
 				4BF5BBD62A16EB79008C5528 /* TabBarView.swift in Sources */,
 				4B41A4E62A1C14C30005A45A /* CustomColor.swift in Sources */,
 				4BF5BBC32A16E622008C5528 /* PreeshApp.swift in Sources */,
+				4B41A4EC2A1C1E240005A45A /* ProfileModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

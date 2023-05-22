@@ -12,23 +12,21 @@ struct ContentView: View {
 
     var body: some View {
         VStack {
-            Spacer()
-            Image(systemName: "gift.fill")
-                .font(.system(size: 40))
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Welcome to preesh!")
-                .font(.system(size: 25))
+       
             
             if optionSelected == 0 {
                 HomeFeedView()
             } else if optionSelected == 1 {
                 ProfileView()
+                    .padding(.bottom, -130)
+            
             }
             
             Spacer()
             TabBarView(optionSelected: self.$optionSelected)
         }
+//        .background(CustomColor.preeshBlue.edgesIgnoringSafeArea(.top))
+        .shadow(radius:20)
     }
 }
 
