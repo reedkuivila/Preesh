@@ -10,8 +10,10 @@ import SwiftUI
 import PhotosUI
 
 struct ProfileView: View {
-    @State var showImagePicker: Bool = false
+    @StateObject var imageData = ImageData()
     @StateObject var viewModel = ProfileModel()
+    
+    @State private var showImagePicker: Bool = false
 
 
     var body: some View {
@@ -45,20 +47,29 @@ struct ProfileView: View {
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 150, height: 150)
                             .padding(.top, -190)
-                        
+
                         // Edit profile image
                             .overlay(alignment: .bottomTrailing) {
                                 PhotosPicker(selection: $viewModel.imageSelection,
                                              matching: .images,
                                              photoLibrary: .shared()) {
-                                    Image(systemName: "pencil.circle.fill")
-                                        .symbolRenderingMode(.multicolor)
-                                        .font(.system(size: 40))
-                                        .foregroundColor(.blue)
-                                        .padding(.bottom)
+                                    Button {
+                                        showImagePicker.toggle()
+                                    } label: {
+                                        Label("", systemImage: "pencil.circle.fill")
+                                            .symbolRenderingMode(.multicolor)
+                                            .font(.system(size: 40))
+                                            .foregroundColor(.blue)
+                                            .padding(.bottom)
+                                    }
+//                                    Image(systemName: "pencil.circle.fill")
+//                                        .symbolRenderingMode(.multicolor)
+//                                        .font(.system(size: 40))
+//                                        .foregroundColor(.blue)
+//                                        .padding(.bottom)
                                 }
-                            }                        
-                        
+                            }
+
                         // User info
                         HStack {
                             Image(systemName: "birthday.cake")
@@ -67,8 +78,27 @@ struct ProfileView: View {
                             
                         }
                         .foregroundColor(.white)
-                        Spacer()
                         
+                        Spacer()
+                        HStack(alignment: .top) {
+                            Image(systemName: "birthday.cake")
+                                .font(.system(size: 40))
+                                .padding(.trailing, 100)
+
+                            
+                            Image(systemName: "gift")
+                                .font(.system(size: 40))
+
+                        }
+                        .padding(.top, -370)
+
+
+                        
+                    }
+                    .sheet(isPresented: $showImagePicker) {
+                        ImagePicker(sourceType: .photoLibrary) { image in
+                            imageData.addEntry(image: image)
+                        }
                     }
                     Spacer()
                 }
@@ -84,5 +114,6 @@ struct ProfileView: View {
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView()
+            .environmentObject(ImageData())
     }
 }

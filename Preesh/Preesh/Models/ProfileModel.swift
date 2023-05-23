@@ -11,13 +11,6 @@ import CoreTransferable
 
 @MainActor
 class ProfileModel: ObservableObject {
-    
-    // MARK: - Profile Details
-    
-    @Published var firstName: String = ""
-    @Published var lastName: String = ""
-    @Published var aboutMe: String = ""
-    
     // MARK: - Profile Image
     
     enum ImageState {
@@ -40,13 +33,13 @@ class ProfileModel: ObservableObject {
                 guard let nsImage = NSImage(data: data) else {
                     throw TransferError.importFailed
                 }
-                let image = Image(nsImage: nsImage)
+                let image = Image("MontourProfile")
                 return ProfileImage(image: image)
             #elseif canImport(UIKit)
                 guard let uiImage = UIImage(data: data) else {
                     throw TransferError.importFailed
                 }
-                let image = Image(uiImage: uiImage)
+                let image = Image("MontourProfile")
                 return ProfileImage(image: image)
             #else
                 throw TransferError.importFailed
