@@ -53,10 +53,9 @@ struct LoginView: View {
                 }
             }
             
-            NavigationLink(destination: ProfileView()){                
                 Button {
                     print("Sign In")
-//                viewModel.login(withEmail: email, password: password)
+                viewModel.login(withEmail: email, password: password)
                 } label: {
                     Text("Sign In")
                         .font(.headline)
@@ -66,14 +65,14 @@ struct LoginView: View {
                         .clipShape(Capsule())
                         .padding()
                 }
-            }
+            
             .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
             
             Spacer()
             
             // MARK: Need to add a page to register a new user
             NavigationLink  {
-                EmptyView()
+                RegistrationView()
                     .navigationBarHidden(true)
             } label: {
                 HStack {

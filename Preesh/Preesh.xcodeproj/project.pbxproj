@@ -38,6 +38,7 @@
 		4B8AD75E2A1D54B500BAFFCD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AD75D2A1D54B500BAFFCD /* UserService.swift */; };
 		4B8AD7602A1D556D00BAFFCD /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AD75F2A1D556D00BAFFCD /* CustomInputField.swift */; };
 		4B8AD7622A1D562800BAFFCD /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AD7612A1D562800BAFFCD /* ImageUploader.swift */; };
+		4B8AD7652A1E966F00BAFFCD /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AD7642A1E966F00BAFFCD /* RegistrationView.swift */; };
 		4BF5BBC32A16E622008C5528 /* PreeshApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC22A16E622008C5528 /* PreeshApp.swift */; };
 		4BF5BBC52A16E622008C5528 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC42A16E622008C5528 /* ContentView.swift */; };
 		4BF5BBC72A16E624008C5528 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF5BBC62A16E624008C5528 /* Assets.xcassets */; };
@@ -60,6 +61,7 @@
 		4B8AD75D2A1D54B500BAFFCD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B8AD75F2A1D556D00BAFFCD /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		4B8AD7612A1D562800BAFFCD /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		4B8AD7642A1E966F00BAFFCD /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4BF5BBBF2A16E622008C5528 /* Preesh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preesh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BF5BBC22A16E622008C5528 /* PreeshApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreeshApp.swift; sourceTree = "<group>"; };
 		4BF5BBC42A16E622008C5528 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				4BF5BBD12A16E641008C5528 /* ProfileView.swift */,
 				4BF5BBD32A16E672008C5528 /* HomeFeedView.swift */,
 				4BF5BBD52A16EB79008C5528 /* TabBarView.swift */,
+				4B8AD7642A1E966F00BAFFCD /* RegistrationView.swift */,
 				4B3F26A52A1D2E520095F7AD /* LoginView.swift */,
 			);
 			path = Views;
@@ -298,6 +301,7 @@
 				4BF5BBC52A16E622008C5528 /* ContentView.swift in Sources */,
 				4BF5BBD42A16E672008C5528 /* HomeFeedView.swift in Sources */,
 				4BF5BBD22A16E641008C5528 /* ProfileView.swift in Sources */,
+				4B8AD7652A1E966F00BAFFCD /* RegistrationView.swift in Sources */,
 				4B41A4EE2A1C21790005A45A /* ProfileImage.swift in Sources */,
 				4BF5BBD62A16EB79008C5528 /* TabBarView.swift in Sources */,
 				4B41A4E62A1C14C30005A45A /* CustomColor.swift in Sources */,
