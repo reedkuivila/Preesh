@@ -18,10 +18,6 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             
-//            NavigationLink(destination: ProfilePhotoSelectorView(),
-//                           isActive: $viewModel.didAuthenticateUser,
-//                           label: { })
-            
             AuthHeaderView(title1: "Lets get to know you")
                 .font(.custom("times", size: 15))
             
@@ -54,23 +50,29 @@ struct RegistrationView: View {
             }
             .padding(32)
             
-            Button {
-                print("Sign Up")
-                viewModel.register(withEmail: email,
-                                   password: password,
-                                   fullname: fullname,
-                                   username: username)
-            } label: {
-                Text("Sign Up")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                    .frame(width: 340, height: 50)
-                    .background(CustomColor.preeshBlue)
-                    .clipShape(Capsule())
-                    .padding()
-            }
-            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
             
+            NavigationLink("Sign Up", destination: ContentView())
+                .buttonStyle(.borderless)
+                .accentColor(CustomColor.preeshBlue)
+            
+            // MARK: disabled firebase authentication for testing purposes
+//            Button {
+//                print("Sign Up")
+//                viewModel.register(withEmail: email,
+//                                   password: password,
+//                                   fullname: fullname,
+//                                   username: username)
+//            } label: {
+//                Text("Sign Up")
+//                    .font(.headline)
+//                    .foregroundColor(.white)
+//                    .frame(width: 340, height: 50)
+//                    .background(CustomColor.preeshBlue)
+//                    .clipShape(Capsule())
+//                    .padding()
+//            }
+//            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
+//
             
             Spacer()
             

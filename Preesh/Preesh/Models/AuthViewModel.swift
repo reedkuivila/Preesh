@@ -10,7 +10,7 @@ import Firebase
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
-    @Published var didAuthenticateUser = false
+    @Published public var didAuthenticateUser = false
     @Published var currentUser: User?
     private var tempUserSession: FirebaseAuth.User?
     

@@ -11,66 +11,75 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
+
+    
     
     var body: some View {
         NavigationView {
-        VStack {
-            //header here
-            AuthHeaderView(title1: "Welcome back")
-            
-            VStack(spacing: 40) {
-                CustomInputField(imageName: "envelope",
-                                 placeholderText: "Email",
-                                 textCase: .lowercase,
-                                 keyboardType: .emailAddress,
-                                 textContentType: .emailAddress,
-                                 text: $email)
+            VStack {
+                //header here
+                AuthHeaderView(title1: "Welcome back")
                 
-                
-                CustomInputField(imageName: "lock",
-                                 placeholderText: "Password",
-                                 textCase: .lowercase,
-                                 keyboardType: .default,
-                                 textContentType: .password,
-                                 isSecureField: true,
-                                 text: $password)
-            }
-            .padding(.horizontal, 32)
-            .padding(.top, 44)
-            
-            HStack {
-                Spacer()
-                
-                NavigationLink {
-                    Text("have user rest their password")
-                } label: {
-                    Text("Forgot Password?")
-                        .font(.caption)
-                        .fontWeight(.semibold)
-                        .foregroundColor(CustomColor.preeshBlue)
-                        .padding(.top)
-                        .padding(.trailing, 24)
+                VStack(spacing: 40) {
+                    CustomInputField(imageName: "envelope",
+                                     placeholderText: "Email",
+                                     textCase: .lowercase,
+                                     keyboardType: .emailAddress,
+                                     textContentType: .emailAddress,
+                                     text: $email)
+                    
+                    
+                    CustomInputField(imageName: "lock",
+                                     placeholderText: "Password",
+                                     textCase: .lowercase,
+                                     keyboardType: .default,
+                                     textContentType: .password,
+                                     isSecureField: true,
+                                     text: $password)
                 }
-            }
-            
-                Button {
-                    print("Sign In")
-                viewModel.login(withEmail: email, password: password)
-                } label: {
-                    Text("Sign In")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 340, height: 50)
-                        .background(CustomColor.preeshBlue)
-                        .clipShape(Capsule())
-                        .padding()
+                .padding(.horizontal, 32)
+                .padding(.top, 44)
+                
+                HStack {
+                    Spacer()
+                    
+                    NavigationLink {
+                        Text("have user rest their password")
+                    } label: {
+                        Text("Forgot Password?")
+                            .font(.caption)
+                            .fontWeight(.semibold)
+                            .foregroundColor(CustomColor.preeshBlue)
+                            .padding(.top)
+                            .padding(.trailing, 24)
+                    }
                 }
+                
+
+                NavigationLink("Sign In", destination: ContentView())
+                    .buttonStyle(.borderless)
+
+                //MARK: disabled firebase auth for testing purposes
+//                    Button {
+//                        print("Sign In User")
+//                        viewModel.login(withEmail: email, password: password)
+//                    } label: {
+//                        Text("Sign In")
+//                            .font(.headline)
+//                            .foregroundColor(.white)
+//                            .frame(width: 340, height: 50)
+//                            .background(CustomColor.preeshBlue)
+//                            .clipShape(Capsule())
+//                            .padding()
+//                    }
+
+            
             
             .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
             
             Spacer()
             
-            // MARK: Need to add a page to register a new user
+// MARK: take user to register if no acount
             NavigationLink  {
                 RegistrationView()
                     .navigationBarHidden(true)
