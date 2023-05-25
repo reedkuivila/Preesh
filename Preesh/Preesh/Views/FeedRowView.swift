@@ -5,12 +5,14 @@
 //  Created by reed kuivila on 5/25/23.
 //
 
+
 import SwiftUI
 
 struct FeedRowView: View {
+    var product: Product
+
     var body: some View {
-        VStack(alignment: .leading){
-            
+        VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 12) {
                 // user profile image
                 Image(systemName: "person.circle")
@@ -32,11 +34,12 @@ struct FeedRowView: View {
                             .font(.caption)
                     }
                     
-                    Text("Reed added item to his list!")
+                    Text("Reed added \(product.productName) item to his list!")
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }
             }
+            
             // user actions to bookmark items
             HStack {
                 Spacer()
@@ -56,6 +59,7 @@ struct FeedRowView: View {
                 Spacer()
                 Spacer()
             }
+            
             Divider()
         }
         .padding()
@@ -64,6 +68,7 @@ struct FeedRowView: View {
 
 struct FeedRowView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedRowView()
+        FeedRowView(product: Product(id: UUID(), productName: "Example Product"))
     }
 }
+

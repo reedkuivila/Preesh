@@ -17,6 +17,7 @@ struct TabBarView: View {
                 .padding()
                 .padding(.horizontal, 22)
             Button(action: {
+                self.optionSelected = 2
             }) {
                 Image(systemName: "plus.circle").renderingMode(.original)
                     .padding(15)
