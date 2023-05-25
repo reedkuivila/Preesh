@@ -17,7 +17,6 @@ struct ProfileView: View {
     @State private var showImagePicker: Bool = false
     @State private var selectedFilter: ItemFilterViewModel = .bday
 
-
     var body: some View {
             VStack {
                 HStack {
@@ -27,7 +26,7 @@ struct ProfileView: View {
 //                        // Preesh Logo
                         Image("preeshHorizontal")
                             .resizable()
-                            .frame(width: 115, height: 60, alignment: .center)
+                            .frame(width: 105, height: 60, alignment: .center)
                             .clipShape(Rectangle())
                             .cornerRadius(30)
                             .shadow(radius: 20)
@@ -116,14 +115,13 @@ struct ProfileView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-//                .ignoresSafeArea()
                 .background(CustomColor.preeshBlue)
                 
                 // show items foor each list
                 ScrollView {
                     LazyVStack {
-                        ForEach(datas.products) { product in // Iterate over the products array
-                            FeedRowView(product: product) // Pass each product to the FeedRowView
+                        ForEach(datas.products) { product in
+                            SearchRowView(product: product)
                         }
                     }
                 }

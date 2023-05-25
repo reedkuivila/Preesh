@@ -28,7 +28,6 @@ struct PreeshApp: App {
         WindowGroup {
             NavigationView {
                 LoginView()
-//                ContentView()
             }
             .environmentObject(viewModel)
 
