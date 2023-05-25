@@ -20,6 +20,8 @@
 		4B421D1B2A1FC868004464AD /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4B421D1A2A1FC868004464AD /* FirebaseFirestoreSwift */; };
 		4B421D1D2A1FCA16004464AD /* search-response.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B421D1C2A1FCA16004464AD /* search-response.json */; };
 		4B421D1F2A1FD894004464AD /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B421D1E2A1FD894004464AD /* SearchView.swift */; };
+		4B421D212A1FDCBF004464AD /* ItemFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B421D202A1FDCBF004464AD /* ItemFilterViewModel.swift */; };
+		4B421D232A1FEB8B004464AD /* SearchRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B421D222A1FEB8B004464AD /* SearchRowView.swift */; };
 		4B61E4C92A1D3A5500064BE8 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B61E4C82A1D3A5500064BE8 /* AuthViewModel.swift */; };
 		4B7D2C572A1FB391008FEA8D /* FeedRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7D2C562A1FB391008FEA8D /* FeedRowView.swift */; };
 		4B8AD75E2A1D54B500BAFFCD /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8AD75D2A1D54B500BAFFCD /* UserService.swift */; };
@@ -47,6 +49,8 @@
 		4B41A4ED2A1C21790005A45A /* ProfileImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImage.swift; sourceTree = "<group>"; };
 		4B421D1C2A1FCA16004464AD /* search-response.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "search-response.json"; sourceTree = "<group>"; };
 		4B421D1E2A1FD894004464AD /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		4B421D202A1FDCBF004464AD /* ItemFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemFilterViewModel.swift; sourceTree = "<group>"; };
+		4B421D222A1FEB8B004464AD /* SearchRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRowView.swift; sourceTree = "<group>"; };
 		4B61E4C82A1D3A5500064BE8 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		4B7D2C562A1FB391008FEA8D /* FeedRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRowView.swift; sourceTree = "<group>"; };
 		4B8AD75D2A1D54B500BAFFCD /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 				4B41A4EB2A1C1E240005A45A /* ProfileModel.swift */,
 				4B41A4ED2A1C21790005A45A /* ProfileImage.swift */,
 				4B3F26A32A1D220D0095F7AD /* ProfileDataModel.swift */,
+				4B421D202A1FDCBF004464AD /* ItemFilterViewModel.swift */,
 				4B3F26B22A1D33F00095F7AD /* UserModel.swift */,
 				4B61E4C82A1D3A5500064BE8 /* AuthViewModel.swift */,
 				4BB791192A1FBC7300C78834 /* Product.swift */,
@@ -171,6 +176,7 @@
 			children = (
 				4BF5BBC42A16E622008C5528 /* ContentView.swift */,
 				4B421D1E2A1FD894004464AD /* SearchView.swift */,
+				4B421D222A1FEB8B004464AD /* SearchRowView.swift */,
 				4BF5BBD12A16E641008C5528 /* ProfileView.swift */,
 				4BF5BBD32A16E672008C5528 /* HomeFeedView.swift */,
 				4B7D2C562A1FB391008FEA8D /* FeedRowView.swift */,
@@ -270,6 +276,7 @@
 				4BF5BBD22A16E641008C5528 /* ProfileView.swift in Sources */,
 				4B8AD7652A1E966F00BAFFCD /* RegistrationView.swift in Sources */,
 				4B41A4EE2A1C21790005A45A /* ProfileImage.swift in Sources */,
+				4B421D232A1FEB8B004464AD /* SearchRowView.swift in Sources */,
 				4BF5BBD62A16EB79008C5528 /* TabBarView.swift in Sources */,
 				4B41A4E62A1C14C30005A45A /* CustomColor.swift in Sources */,
 				4B7D2C572A1FB391008FEA8D /* FeedRowView.swift in Sources */,
@@ -278,6 +285,7 @@
 				4B8AD7602A1D556D00BAFFCD /* CustomInputField.swift in Sources */,
 				4B41A4EC2A1C1E240005A45A /* ProfileModel.swift in Sources */,
 				4B3F26B32A1D33F00095F7AD /* UserModel.swift in Sources */,
+				4B421D212A1FDCBF004464AD /* ItemFilterViewModel.swift in Sources */,
 				4B8AD7622A1D562800BAFFCD /* ImageUploader.swift in Sources */,
 				4B61E4C92A1D3A5500064BE8 /* AuthViewModel.swift in Sources */,
 				4B3F26A42A1D220D0095F7AD /* ProfileDataModel.swift in Sources */,

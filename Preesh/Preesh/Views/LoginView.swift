@@ -11,7 +11,7 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     @EnvironmentObject var viewModel: AuthViewModel
-
+    
     
     
     var body: some View {
@@ -55,51 +55,53 @@ struct LoginView: View {
                     }
                 }
                 
-
-                NavigationLink("Sign In", destination: ContentView())
+                
+                NavigationLink("Sign In", destination: ContentView()
+                    .navigationBarHidden(true))
                     .buttonStyle(.borderless)
-
+                    .navigationBarBackButtonHidden(true)
+                
                 //MARK: disabled firebase auth for testing purposes
-//                    Button {
-//                        print("Sign In User")
-//                        viewModel.login(withEmail: email, password: password)
-//                    } label: {
-//                        Text("Sign In")
-//                            .font(.headline)
-//                            .foregroundColor(.white)
-//                            .frame(width: 340, height: 50)
-//                            .background(CustomColor.preeshBlue)
-//                            .clipShape(Capsule())
-//                            .padding()
-//                    }
-
-            
-            
-            .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
-            
-            Spacer()
-            
-// MARK: take user to register if no acount
-            NavigationLink  {
-                RegistrationView()
-                    .navigationBarHidden(true)
-            } label: {
-                HStack {
-                    Text("Don't have an account?")
-                        .font(.footnote)
-                    
-                    Text("Sign Up")
-                        .font(.footnote)
-                        .fontWeight(.semibold)
+                //                    Button {
+                //                        print("Sign In User")
+                //                        viewModel.login(withEmail: email, password: password)
+                //                    } label: {
+                //                        Text("Sign In")
+                //                            .font(.headline)
+                //                            .foregroundColor(.white)
+                //                            .frame(width: 340, height: 50)
+                //                            .background(CustomColor.preeshBlue)
+                //                            .clipShape(Capsule())
+                //                            .padding()
+                //                    }
+                
+                
+                
+                    .shadow(color: .gray.opacity(0.5), radius: 10, x: 0, y: 0)
+                
+                Spacer()
+                
+                // MARK: take user to register if no acount
+                NavigationLink  {
+                    RegistrationView()
+                        .navigationBarHidden(true)
+                } label: {
+                    HStack {
+                        Text("Don't have an account?")
+                            .font(.footnote)
+                        
+                        Text("Sign Up")
+                            .font(.footnote)
+                            .fontWeight(.semibold)
+                    }
                 }
+                .padding(.bottom, 32)
+                .foregroundColor(CustomColor.preeshBlue)
+
+                
             }
-            .padding(.bottom, 32)
-            .foregroundColor(CustomColor.preeshBlue)
-            
+            .ignoresSafeArea()
         }
-        .ignoresSafeArea()
-        
-    }
     }
 }
 
@@ -135,5 +137,6 @@ struct AuthHeaderView: View {
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {
         LoginView()
+        
     }
 }

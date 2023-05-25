@@ -11,15 +11,15 @@ import Foundation
 struct Product: Codable, Identifiable {
     var id: UUID?
     var productName: String
+    var imageURL: String
+
 
     enum CodingKeys: String, CodingKey {
         case id
         case productName
+        case imageURL = "productImage" // Update the key to match your JSON structure
+
     }
-    
-//    init(productName: String) {
-//        self.productName = productName
-//    }
 }
 
 
@@ -29,22 +29,6 @@ class ReadData: ObservableObject {
     init() {
         loadData()
     }
-
-//    func loadData() {
-//        guard let url = Bundle.main.url(forResource: "search-response", withExtension: "json") else {
-//            print("JSON file not found")
-//            return
-//        }
-//
-//        do {
-//            let data = try Data(contentsOf: url)
-//            let decoder = JSONDecoder()
-//            decoder.keyDecodingStrategy = .convertFromSnakeCase // Optional: Converts snake_case keys to camelCase
-//            self.products = try decoder.decode([Product].self, from: data)
-//        } catch {
-//            print("Error decoding JSON: \(error)")
-//        }
-//    }
     
 func loadData() {
     guard let url = Bundle.main.url(forResource: "search-response", withExtension: "json") else {

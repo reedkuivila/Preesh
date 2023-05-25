@@ -9,6 +9,8 @@ import SwiftUI
 
 struct SearchView: View {
     @Binding var searchText: String
+    @ObservedObject var datas = ReadData()
+
 
     var body: some View {
         VStack {
@@ -20,6 +22,21 @@ struct SearchView: View {
                 .foregroundColor(CustomColor.preeshBlue)
                 .padding()
             
+            List {
+                ScrollView {
+                    LazyVStack {
+                        ForEach(datas.products.filter { product in
+                                searchText.isEmpty ||
+                                product.productName.localizedCaseInsensitiveContains(searchText)
+                        }) { product in // Iterate over the products array
+                            SearchRowView(product: product) // Pass each product to the FeedRowView
+                        }
+                    }
+                }
+            .listStyle(.plain)
+            .refreshable{}
+
+            }
             // Add your own custom view to show the search results here
             
             Spacer()

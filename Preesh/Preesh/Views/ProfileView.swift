@@ -12,8 +12,10 @@ import PhotosUI
 struct ProfileView: View {
     @StateObject var imageData = ImageData()
     @StateObject var viewModel = ProfileModel()
+    @ObservedObject var datas = ReadData()
     
     @State private var showImagePicker: Bool = false
+    @State private var selectedFilter: ItemFilterViewModel = .bday
 
 
     var body: some View {
@@ -22,14 +24,14 @@ struct ProfileView: View {
                     Spacer()
                     VStack {
                         Spacer()
-                        // Preesh Logo
-                        Image("preeshLogo")
+//                        // Preesh Logo
+                        Image("preeshHorizontal")
                             .resizable()
-                            .frame(width: 135, height: 110, alignment: .center)
+                            .frame(width: 115, height: 60, alignment: .center)
                             .clipShape(Rectangle())
-                            .cornerRadius(50)
+                            .cornerRadius(30)
                             .shadow(radius: 20)
-                            .padding(.top, -350)
+                            .padding(.top, -300)
                         
                         // User name
                         Text("Jordan Montour")
@@ -42,11 +44,11 @@ struct ProfileView: View {
                         // User profile photo
                         Image("MontourProfile")
                             .resizable()
-                            .frame(width: 180, height: 195)
+                            .frame(width: 160, height: 175)
                             .clipShape(Circle())
                             .aspectRatio(contentMode: .fit)
                             .frame(width: 150, height: 150)
-                            .padding(.top, -190)
+                            .padding(.top, -200)
 
                         // Edit profile image
                             .overlay(alignment: .bottomTrailing) {
@@ -60,13 +62,8 @@ struct ProfileView: View {
                                             .symbolRenderingMode(.multicolor)
                                             .font(.system(size: 40))
                                             .foregroundColor(.blue)
-                                            .padding(.bottom)
+                                            .padding(.bottom, 30)
                                     }
-//                                    Image(systemName: "pencil.circle.fill")
-//                                        .symbolRenderingMode(.multicolor)
-//                                        .font(.system(size: 40))
-//                                        .foregroundColor(.blue)
-//                                        .padding(.bottom)
                                 }
                             }
 
@@ -77,22 +74,38 @@ struct ProfileView: View {
                                 .font(.custom("times", size: 20)).bold()
                             
                         }
+                        .padding(.top, -30)
                         .foregroundColor(.white)
                         
-                        Spacer()
-                        HStack(alignment: .top) {
-                            Image(systemName: "birthday.cake")
-                                .font(.system(size: 40))
-                                .padding(.trailing, 100)
+                        // select user list
 
-                            
-                            Image(systemName: "gift")
-                                .font(.system(size: 40))
-
+                        HStack {
+                            ForEach(ItemFilterViewModel.allCases, id: \.rawValue) { item in
+                                VStack {
+                                    Text(item.title)
+                                        .font(.custom("times", size: 20))
+                                        .fontWeight(selectedFilter == item ? .semibold : .regular)
+                                        .opacity(selectedFilter == item ? 0.9 : 0.5)
+                                    
+                                    if selectedFilter == item {
+                                        Capsule()
+                                            .foregroundColor(Color(.gray).opacity(0.5))
+                                            .frame(height: 3)
+                                    } else {
+                                        Capsule()
+                                            .foregroundColor(Color(.clear))
+                                            .frame(height: 3)
+                                    }
+                                }
+                                .onTapGesture {
+                                    withAnimation(.easeInOut) {
+                                        self.selectedFilter = item
+                                    }
+                                }
+                            }
                         }
-                        .padding(.top, -370)
-
-
+                        .overlay(Divider().offset(x: 0, y: 16))
+                        .foregroundColor(.white)
                         
                     }
                     .sheet(isPresented: $showImagePicker) {
@@ -103,8 +116,17 @@ struct ProfileView: View {
                     Spacer()
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                .ignoresSafeArea()
+//                .ignoresSafeArea()
                 .background(CustomColor.preeshBlue)
+                
+                // show items foor each list
+                ScrollView {
+                    LazyVStack {
+                        ForEach(datas.products) { product in // Iterate over the products array
+                            FeedRowView(product: product) // Pass each product to the FeedRowView
+                        }
+                    }
+                }
             }
    
         }
@@ -116,4 +138,9 @@ struct ProfileView_Previews: PreviewProvider {
         ProfileView()
             .environmentObject(ImageData())
     }
+}
+
+
+extension ProfileView {
+    
 }
