@@ -15,7 +15,7 @@ struct FeedRowView: View {
         VStack(alignment: .leading) {
             HStack(alignment: .top, spacing: 12) {
                 // user profile image
-                Image(systemName: "person.circle")
+                Image("MontourProfile")
                     .resizable()
                     .frame(width: 56, height: 56)
                     .clipShape(Circle())
@@ -25,16 +25,21 @@ struct FeedRowView: View {
                 // user name & info
                 VStack(alignment: .leading, spacing: 4) {
                     HStack {
-                        Text("Preesh user")
+                        Text("Jordan Montour")
                             .font(.subheadline)
                             .bold()
                         
-                        Text("user birthday")
-                            .foregroundColor(.gray)
-                            .font(.caption)
+                        HStack {
+                            Image(systemName: "birthday.cake")
+                                .font(.system(size: 10))
+        
+                            Text("November 1")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                        }
                     }
                     
-                    Text("Reed added \(product.productName) item to his list!")
+                    Text("Jordan added \(product.productName) item to his birthday list!")
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }
@@ -59,6 +64,7 @@ struct FeedRowView: View {
                 Spacer()
                 Button {
                     // share item
+                    shareProduct()
                 } label: {
                     Image(systemName: "square.and.arrow.up")
                 }
@@ -70,6 +76,16 @@ struct FeedRowView: View {
         }
         .padding()
     }
+    private func shareProduct() {
+        let shareText = "Check out this product Jordan added to his wishlist on Preesh!: \(product.productName)"
+        let activityItems: [Any] = [shareText]
+        
+        DispatchQueue.main.async {
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+//            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
+        }
+    }
+
 }
 
 struct FeedRowView_Previews: PreviewProvider {

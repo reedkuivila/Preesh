@@ -15,12 +15,15 @@ struct SearchRowView: View {
     @State private var isBookmarkButtonTapped = false
     @State private var isShareButtonTapped = false
     
-    @State private var birthdayList: [Product] = []
-    @State private var bookmarksList: [Product] = []
-    
-    private let birthdayListKey = "BirthdayList"
-    private let bookmarksListKey = "BookmarksList"
-    
+//    private let birthdayListKey = "BirthdayList"
+//    private let bookmarksListKey = "BookmarksList"
+        
+    init(product: Product) {
+        self.product = product
+        // Load the initial state of the buttons from UserDefaults or other storage
+        _isCakeButtonTapped = State(initialValue: UserDefaults.standard.bool(forKey: "\(String(describing: product.id))-cake"))
+        _isBookmarkButtonTapped = State(initialValue: UserDefaults.standard.bool(forKey: "\(String(describing: product.id))-bookmark"))
+    }
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -55,7 +58,9 @@ struct SearchRowView: View {
                 Spacer()
                 Button {
                     // add item to birthday list
-                    addToBirthdayList()
+                    isCakeButtonTapped.toggle()
+                    // Save the state of the cake button
+                    UserDefaults.standard.set(isCakeButtonTapped, forKey: "\(String(describing: product.id))-cake")
                 } label: {
                     Image(systemName: isCakeButtonTapped ? "birthday.cake.fill" : "birthday.cake")
                 }
@@ -63,7 +68,9 @@ struct SearchRowView: View {
                 Spacer()
                 Button {
                     // add item to bookmarks
-                    addToBookmarkList()
+                    isBookmarkButtonTapped.toggle()
+                    // Save the state of the bookmark button
+                    UserDefaults.standard.set(isBookmarkButtonTapped, forKey: "\(String(describing: product.id))-bookmark")
                 } label: {
                     Image(systemName: isBookmarkButtonTapped ? "bookmark.fill" : "bookmark")
                 }
@@ -72,6 +79,7 @@ struct SearchRowView: View {
                 Button {
                     // share item
                     isShareButtonTapped.toggle()
+                    shareProduct()
                 } label: {
                     Image(systemName: isShareButtonTapped ? "square.and.arrow.up.fill" : "square.and.arrow.up")
                 }
@@ -82,59 +90,15 @@ struct SearchRowView: View {
             Divider()
         }
         .padding()
-        .onAppear {
-            loadBirthdayList()
-            loadBookmarksList()
-        }
     }
     
-    private func addToBirthdayList() {
-        isCakeButtonTapped.toggle()
+    private func shareProduct() {
+        let shareText = "Check out this product I added to my wishlist on Preesh!: \(product.productName)"
+        let activityItems: [Any] = [shareText]
         
-        if isCakeButtonTapped {
-            birthdayList.append(product)
-        } else {
-            birthdayList.removeAll { $0.id == product.id }
-        }
-        
-        saveBirthdayList()
-    }
-    
-    private func addToBookmarkList() {
-        isBookmarkButtonTapped.toggle()
-        
-        if isBookmarkButtonTapped {
-            bookmarksList.append(product)
-        } else {
-            bookmarksList.removeAll { $0.id == product.id }
-        }
-        
-        saveBookmarksList()
-    }
-    
-    private func saveBirthdayList() {
-        let encodedData = try? JSONEncoder().encode(birthdayList)
-        UserDefaults.standard.set(encodedData, forKey: birthdayListKey)
-    }
-    
-    private func saveBookmarksList() {
-        let encodedData = try? JSONEncoder().encode(bookmarksList)
-        UserDefaults.standard.set(encodedData, forKey: bookmarksListKey)
-    }
-    
-    private func loadBirthdayList() {
-        if let encodedData = UserDefaults.standard.data(forKey: birthdayListKey),
-           let decodedData = try? JSONDecoder().decode([Product].self, from: encodedData) {
-            birthdayList = decodedData
-            isCakeButtonTapped = birthdayList.contains { $0.id == product.id }
-        }
-    }
-    
-    private func loadBookmarksList() {
-        if let encodedData = UserDefaults.standard.data(forKey: bookmarksListKey),
-           let decodedData = try? JSONDecoder().decode([Product].self, from: encodedData) {
-            bookmarksList = decodedData
-            isBookmarkButtonTapped = bookmarksList.contains { $0.id == product.id }
+        DispatchQueue.main.async {
+            let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+//            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
     }
 }
@@ -142,7 +106,6 @@ struct SearchRowView: View {
 
 struct SearchRowView_Previews: PreviewProvider {
     static var previews: some View {
-        FeedRowView(product: Product(id: UUID(), productName: "Example Product", imageURL: "https://example.com/image.jpg"))
+        SearchRowView(product: Product(id: UUID(), productName: "Example Product", imageURL: "https://example.com/image.jpg"))
     }
 }
-

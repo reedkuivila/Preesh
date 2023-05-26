@@ -39,6 +39,8 @@
 		4BF5BBD22A16E641008C5528 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBD12A16E641008C5528 /* ProfileView.swift */; };
 		4BF5BBD42A16E672008C5528 /* HomeFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBD32A16E672008C5528 /* HomeFeedView.swift */; };
 		4BF5BBD62A16EB79008C5528 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF5BBD52A16EB79008C5528 /* TabBarView.swift */; };
+		4BFA32732A206D45007C3C00 /* BookmarksModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA32722A206D45007C3C00 /* BookmarksModel.swift */; };
+		4BFA32752A206D4F007C3C00 /* BirthdayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFA32742A206D4E007C3C00 /* BirthdayModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +72,8 @@
 		4BF5BBD12A16E641008C5528 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		4BF5BBD32A16E672008C5528 /* HomeFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedView.swift; sourceTree = "<group>"; };
 		4BF5BBD52A16EB79008C5528 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		4BFA32722A206D45007C3C00 /* BookmarksModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksModel.swift; sourceTree = "<group>"; };
+		4BFA32742A206D4E007C3C00 /* BirthdayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				4B3F26B22A1D33F00095F7AD /* UserModel.swift */,
 				4B61E4C82A1D3A5500064BE8 /* AuthViewModel.swift */,
 				4BB791192A1FBC7300C78834 /* Product.swift */,
+				4BFA32722A206D45007C3C00 /* BookmarksModel.swift */,
+				4BFA32742A206D4E007C3C00 /* BirthdayModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -156,8 +162,8 @@
 		4BF5BBC12A16E622008C5528 /* Preesh */ = {
 			isa = PBXGroup;
 			children = (
-				4B421D1C2A1FCA16004464AD /* search-response.json */,
 				4BF5BBC22A16E622008C5528 /* PreeshApp.swift */,
+				4B421D1C2A1FCA16004464AD /* search-response.json */,
 				4B8AD75C2A1D54A000BAFFCD /* Services */,
 				4B41A4EA2A1C1E170005A45A /* Models */,
 				4B41A4E72A1C1C450005A45A /* Helpers */,
@@ -277,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B421D1F2A1FD894004464AD /* SearchView.swift in Sources */,
+				4BFA32732A206D45007C3C00 /* BookmarksModel.swift in Sources */,
 				4BB7911A2A1FBC7300C78834 /* Product.swift in Sources */,
 				4B8AD75E2A1D54B500BAFFCD /* UserService.swift in Sources */,
 				4B41A4E92A1C1C540005A45A /* ImagePicker.swift in Sources */,
@@ -296,6 +303,7 @@
 				4B41A4EC2A1C1E240005A45A /* ProfileModel.swift in Sources */,
 				4B3F26B32A1D33F00095F7AD /* UserModel.swift in Sources */,
 				4B421D212A1FDCBF004464AD /* ItemFilterViewModel.swift in Sources */,
+				4BFA32752A206D4F007C3C00 /* BirthdayModel.swift in Sources */,
 				4B8AD7622A1D562800BAFFCD /* ImageUploader.swift in Sources */,
 				4B61E4C92A1D3A5500064BE8 /* AuthViewModel.swift in Sources */,
 				4B3F26A42A1D220D0095F7AD /* ProfileDataModel.swift in Sources */,
@@ -434,6 +442,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,6 +474,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
