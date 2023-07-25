@@ -11,18 +11,16 @@ import SwiftUI
 struct SearchRowView: View {
     var product: Product
     
+    // Array to store bookmarks and bday items
+
+    
     @State private var isCakeButtonTapped = false
     @State private var isBookmarkButtonTapped = false
     @State private var isShareButtonTapped = false
     
-//    private let birthdayListKey = "BirthdayList"
-//    private let bookmarksListKey = "BookmarksList"
         
     init(product: Product) {
         self.product = product
-        // Load the initial state of the buttons from UserDefaults or other storage
-        _isCakeButtonTapped = State(initialValue: UserDefaults.standard.bool(forKey: "\(String(describing: product.id))-cake"))
-        _isBookmarkButtonTapped = State(initialValue: UserDefaults.standard.bool(forKey: "\(String(describing: product.id))-bookmark"))
     }
     
     var body: some View {
@@ -57,20 +55,18 @@ struct SearchRowView: View {
             HStack {
                 Spacer()
                 Button {
-                    // add item to birthday list
+                    // Add or remove item from birthday list
                     isCakeButtonTapped.toggle()
-                    // Save the state of the cake button
-                    UserDefaults.standard.set(isCakeButtonTapped, forKey: "\(String(describing: product.id))-cake")
+                    
                 } label: {
                     Image(systemName: isCakeButtonTapped ? "birthday.cake.fill" : "birthday.cake")
                 }
                 
                 Spacer()
                 Button {
-                    // add item to bookmarks
+                    // Add or remove item from bookmarks
                     isBookmarkButtonTapped.toggle()
-                    // Save the state of the bookmark button
-                    UserDefaults.standard.set(isBookmarkButtonTapped, forKey: "\(String(describing: product.id))-bookmark")
+              
                 } label: {
                     Image(systemName: isBookmarkButtonTapped ? "bookmark.fill" : "bookmark")
                 }
@@ -98,7 +94,6 @@ struct SearchRowView: View {
         
         DispatchQueue.main.async {
             let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
-//            UIApplication.shared.windows.first?.rootViewController?.present(activityViewController, animated: true, completion: nil)
         }
     }
 }

@@ -22,27 +22,6 @@ struct Product: Codable, Identifiable {
     }
 }
 
-@MainActor class BirthdayList: ObservableObject {
-    static let shared = BirthdayList(birthdayList: [])
-    
-    private let BIRTHDAY_KEY = "BirthdayKey"
-    
-    @Published var birthdayList: [Product] {
-        didSet {
-            objectWillChange.send()
-            addBirthdayItem()
-        }
-    }
-    
-    init(birthdayList: [Product]) {
-        self.birthdayList = birthdayList
-    }
-    
-    private func addBirthdayItem() {
-        
-    }
-}
-
 class ReadData: ObservableObject {
     @Published var products = [Product]()
 

@@ -19,6 +19,7 @@ struct ProfileView: View {
     @State private var selectedFilter: ItemFilterViewModel = .bday
     @State private var showSettings = false
     
+    
     var body: some View {
         VStack {
             HStack {
@@ -28,7 +29,7 @@ struct ProfileView: View {
                     //                        // Preesh Logo
                     Image("preeshHorizontal")
                         .resizable()
-                        .frame(width: 105, height: 60, alignment: .center)
+                        .frame(width: 105, height: 60)
                         .clipShape(Rectangle())
                         .cornerRadius(30)
                         .shadow(radius: 20)
