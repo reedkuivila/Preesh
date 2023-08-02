@@ -20,6 +20,7 @@ struct LoginTextField: View {
 struct LoginTextField_Previews: PreviewProvider {
     static var previews: some View {
         LoginTextField(imageName: "person",
-                       placeholderText: <#T##String#>)
+                       placeholderText: "Username or email",
+                       text: .constant(""))
     }
 }
