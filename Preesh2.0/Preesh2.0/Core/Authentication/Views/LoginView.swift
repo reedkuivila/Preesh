@@ -16,26 +16,13 @@ struct LoginView: View {
         VStack {
             
             // header view
-            VStack(alignment: .leading) {
-                HStack { Spacer() }
-                Text("Welcome to Preesh.")
-                    .font(.largeTitle)
-                    .fontWeight(.semibold)
-                
-                Text("Join below.")
-                    .font(.title)
-                    .fontWeight(.semibold)
-            }
-            .frame(height: 260)
-            .padding(.leading)
-            .background(Color("preeshBlue"))
-            .foregroundColor(.white)
-            .clipShape(RoundedShape(corners: [.bottomRight]))
+            AuthHeaderView(title1: "Welcome to preesh", title2: "get started below.")
+
             
             VStack(spacing: 40) {
-                TextField("username", text: $username)
+                CustomInputField(imageName: "person", placeholderText: "username", text: $username)
                 
-                TextField("password", text: $password)
+                CustomInputField(imageName: "lock", placeholderText: "Passwprd", text: $password)
             }
             .padding(.horizontal, 32)
             .padding(.top, 44)
