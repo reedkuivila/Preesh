@@ -10,15 +10,17 @@ import Firebase
 
 @main
 struct Preesh2_0App: App {
+    @State var viewModel = AuthViewModel()
     
     init() {
         FirebaseApp.configure()
     }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-//                ContentView()
-                LoginView()
+                ContentView()
+                    .environmentObject(viewModel)
             }
         }
     }
