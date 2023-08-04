@@ -29,6 +29,7 @@ struct CustomInputField: View {
                     // logic to switch from TextField to SecureField
                     if showPassword {
                         TextField(placeholderText, text: $text)
+                            .autocapitalization(.none)
                     } else {
                         SecureField(placeholderText, text: $text)
                     }

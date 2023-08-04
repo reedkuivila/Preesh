@@ -28,17 +28,19 @@ struct RegistrationView: View {
                 CustomInputField(imageName: "person",
                                  placeholderText: "Full name",
                                  text: $fullname)
+                .textInputAutocapitalization(.words)
                 
                 // username
                 CustomInputField(imageName: "person",
                                  placeholderText: "Username",
                                  text: $username)
-                .textCase(.lowercase)
+                .autocapitalization(.none)
                 
                 // email
                 CustomInputField(imageName: "envelope",
                                  placeholderText: "Email",
                                  text: $email)
+                .autocapitalization(.none)
                 .keyboardType(.emailAddress)
                 
                 // password
