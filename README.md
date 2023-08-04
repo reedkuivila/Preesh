@@ -7,7 +7,7 @@ Preesh uses Firebase to authenticate users and to save user data
 # Contact
 For development questions:
 
-reedkuivila@uchicago.edu
+reed@preesh.co
 
 Interested in connecting, investing, or learning more about Preesh?
 
