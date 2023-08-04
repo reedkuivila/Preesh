@@ -13,15 +13,15 @@ struct ContentView: View {
     
     var body: some View {
         Group {
+            
             if viewModel.userSession == nil {
-                // means no user logged in, show login screen
+                // no user logged in, show login screen
                 LoginView()
             } else {
-                // user is logged in, show home screen
+                // user logged in, show main screen
                 mainScreenView
             }
         }
-
     }
 }
 
@@ -75,5 +75,4 @@ extension ContentView {
             showMenu = false
         }
     }
-    
 }

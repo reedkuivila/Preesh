@@ -5,9 +5,10 @@
 //  Created by reed kuivila on 8/3/23.
 //
 
+
+
 import SwiftUI
 import Firebase
-
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
@@ -15,6 +16,6 @@ class AuthViewModel: ObservableObject {
     init() {
         self.userSession = Auth.auth().currentUser
         
-//        print("DEBUG: User session is \(self.userSession)")
+        print("DEBUG: User session is \(self.userSession)")
     }
 }
