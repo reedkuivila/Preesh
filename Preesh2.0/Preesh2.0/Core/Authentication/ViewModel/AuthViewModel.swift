@@ -19,8 +19,16 @@ class AuthViewModel: ObservableObject {
     }
     
     func login(withEmail email: String, password: String) {
-        print("DEBUG: login with \(email)")
-        // Add login implementation here
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
+                return
+            }
+            guard let user = result?.user else { return }
+            self.userSession = user
+            
+            print("DEBUG: Did login with \(email)")
+        }
     }
     
     func register(withEmail email: String, password: String, fullname: String, username: String) {
@@ -39,7 +47,7 @@ class AuthViewModel: ObservableObject {
             
             // make dictionary for the user's info
             // TODO: add additional parameters - ? phone number, birthday ?
-            let data = ["emain": email,
+            let data = ["email": email,
                         "username": username.lowercased(),
                         "fullname": fullname,
                         "uid": user.uid]
@@ -55,6 +63,7 @@ class AuthViewModel: ObservableObject {
     func logOut() {
         // set userSession to nil --> shows login view
         userSession = nil
+        
         // signs out user on backend server
         // signOut is a firebase function
         try? Auth.auth().signOut()
