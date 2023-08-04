@@ -17,7 +17,7 @@ struct LoginView: View {
         VStack {
             
             // header view
-            AuthHeaderView(title1: "Welcome to preesh", title2: "get started below.")
+            AuthHeaderView(title1: "Welcome to preesh", title2: "get started below.", fontSize: 40)
 
             
             VStack(spacing: 40) {

@@ -11,6 +11,7 @@ import Firebase
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
+    @Published var didAuthenticateUser = false
     
     init() {
         self.userSession = Auth.auth().currentUser

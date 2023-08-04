@@ -21,7 +21,11 @@ struct RegistrationView: View {
     
     var body: some View {
         VStack {
-            AuthHeaderView(title1: "Join preesh today", title2: "create account below.")
+            
+            NavigationLink(destination: ProfilePhotoPickerView(),
+                           isActive: <#T##Binding<Bool>#>,
+                           label: { })
+            AuthHeaderView(title1: "Join preesh today", title2: "create account below.", fontSize: 38)
             
             VStack(spacing: 40) {
                 // name
