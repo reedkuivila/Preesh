@@ -20,8 +20,8 @@ struct Preesh2_0App: App {
         WindowGroup {
             NavigationView {
                 ContentView()
-                    .environmentObject(viewModel)
             }
+            .environmentObject(viewModel)
         }
     }
 }
