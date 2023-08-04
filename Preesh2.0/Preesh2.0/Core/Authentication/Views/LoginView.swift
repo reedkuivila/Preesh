@@ -21,9 +21,14 @@ struct LoginView: View {
 
             
             VStack(spacing: 40) {
-                CustomInputField(imageName: "person", placeholderText: "username", text: $username)
+                CustomInputField(imageName: "person",
+                                 placeholderText: "Email",
+                                 text: $username)
                 
-                CustomInputField(imageName: "lock", placeholderText: "Passwprd", text: $password)
+                CustomInputField(imageName: "lock",
+                                 placeholderText: "Password",
+                                 isSecureField: true,
+                                 text: $password)
             }
             .padding(.horizontal, 32)
             .padding(.top, 44)
