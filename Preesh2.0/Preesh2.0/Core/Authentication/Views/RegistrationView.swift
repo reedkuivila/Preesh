@@ -15,19 +15,37 @@ struct RegistrationView: View {
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var viewModel: AuthViewModel
     
+    @State var showPassword: Bool = false
+
+    
     
     var body: some View {
         VStack {
             AuthHeaderView(title1: "Join preesh today", title2: "create account below.")
             
             VStack(spacing: 40) {
-                CustomInputField(imageName: "person", placeholderText: "Full name", text: $fullname)
+                // name
+                CustomInputField(imageName: "person",
+                                 placeholderText: "Full name",
+                                 text: $fullname)
                 
-                CustomInputField(imageName: "person", placeholderText: "Username", text: $username)
+                // username
+                CustomInputField(imageName: "person",
+                                 placeholderText: "Username",
+                                 text: $username)
+                .textCase(.lowercase)
                 
-                CustomInputField(imageName: "envelope", placeholderText: "Email", text: $email)
+                // email
+                CustomInputField(imageName: "envelope",
+                                 placeholderText: "Email",
+                                 text: $email)
+                .keyboardType(.emailAddress)
                 
-                CustomInputField(imageName: "lock", placeholderText: "Password", text: $password)
+                // password
+                CustomInputField(imageName: "lock",
+                                 placeholderText: "Password",
+                                 isSecureField: true,
+                                 text: $password)
             }
             .padding(32)
             

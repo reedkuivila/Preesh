@@ -13,6 +13,8 @@ struct CustomInputField: View {
     var isSecureField: Bool? = false
     @Binding var text: String
     
+    @State var showPassword: Bool = false
+
     var body: some View {
         VStack {
             HStack {
@@ -22,14 +24,28 @@ struct CustomInputField: View {
                     .frame(width: 20, height: 20)
                     .foregroundColor(.gray)
                 
+                // implement hidden/visible password option only for secure field
                 if isSecureField ?? false {
-                    SecureField(placeholderText, text: $text)
+                    // logic to switch from TextField to SecureField
+                    if showPassword {
+                        TextField(placeholderText, text: $text)
+                    } else {
+                        SecureField(placeholderText, text: $text)
+                    }
+                    
+                    // button to toggle eye image when password is hidden
+                    Button {
+                        showPassword.toggle()
+                    } label: {
+                        Image(systemName: showPassword ? "eye" : "eye.slash")
+                            .foregroundColor(.gray)
+                    }
 
                 } else {
                     TextField(placeholderText, text: $text)
                         .disableAutocorrection(true)
-
                 }
+            
             }
             
             Divider()
