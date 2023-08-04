@@ -5,6 +5,7 @@
 //  Created by reed kuivila on 7/27/23.
 //
 
+
 import SwiftUI
 
 struct RegistrationView: View {
@@ -22,9 +23,13 @@ struct RegistrationView: View {
     var body: some View {
         VStack {
             
+            // navigation link starts as inactive
+            // when the user is authenticated and theiur info is successfully
+            // saved in the database, the navigationlink is activated
             NavigationLink(destination: ProfilePhotoPickerView(),
-                           isActive: <#T##Binding<Bool>#>,
+                           isActive: $viewModel.didAuthenticateUser,
                            label: { })
+            
             AuthHeaderView(title1: "Join preesh today", title2: "create account below.", fontSize: 38)
             
             VStack(spacing: 40) {

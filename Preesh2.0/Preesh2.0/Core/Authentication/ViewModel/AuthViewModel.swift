@@ -41,7 +41,7 @@ class AuthViewModel: ObservableObject {
             }
             
             guard let user = result?.user else { return }
-            self.userSession = user
+//            self.userSession = user
             
             print("DEBUG: Registered user successfully")
             print("DEBUG: User is \(self.userSession)")
@@ -56,6 +56,7 @@ class AuthViewModel: ObservableObject {
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
+                    self.didAuthenticateUser = true
                     print("DEBUG: Did upload user data ..")
                 }
         }
@@ -63,7 +64,7 @@ class AuthViewModel: ObservableObject {
     
     func logOut() {
         // set userSession to nil --> shows login view
-        userSession = nil
+        self.userSession = nil
         
         // signs out user on backend server
         // signOut is a firebase function
