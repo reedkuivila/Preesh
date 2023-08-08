@@ -71,4 +71,8 @@ class AuthViewModel: ObservableObject {
         // signOut is a firebase function
         try? Auth.auth().signOut()
     }
+    
+    func uploadProfileImage(_ image: UIImage) {
+        
+    }
 }

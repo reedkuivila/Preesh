@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B3741002A82991F00AD903D /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3740FF2A82991F00AD903D /* ImageUploader.swift */; };
 		4B4494CE2A69BA3100373262 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CD2A69BA3100373262 /* ItemRowView.swift */; };
 		4B4494D02A69BAF500373262 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CF2A69BAF500373262 /* CustomColor.swift */; };
 		4B4494D32A69C1F500373262 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494D22A69C1F500373262 /* MainTabView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B3740FF2A82991F00AD903D /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		4B4494CD2A69BA3100373262 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		4B4494CF2A69BAF500373262 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		4B4494D22A69C1F500373262 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -329,6 +331,7 @@
 		4BD1DF9D2A66E4BE0056DB38 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4B3740FF2A82991F00AD903D /* ImageUploader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -491,6 +494,7 @@
 				4B61369F2A72EEF1007781A5 /* LoginView.swift in Sources */,
 				4B4494D32A69C1F500373262 /* MainTabView.swift in Sources */,
 				4B5107342A7C550C00682E8F /* AuthViewModel.swift in Sources */,
+				4B3741002A82991F00AD903D /* ImageUploader.swift in Sources */,
 				4B5107272A7BEC9800682E8F /* AuthHeaderView.swift in Sources */,
 				4B6136982A72AB32007781A5 /* NewItemView.swift in Sources */,
 				4B6136A12A72EEF9007781A5 /* RegistrationView.swift in Sources */,
