@@ -12,12 +12,14 @@ import Firebase
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var didAuthenticateUser = false
+    private var tempUserSession: FirebaseAuth.User?
+    
+    private let service = UserService()
     
     init() {
         self.userSession = Auth.auth().currentUser
-        
-        print("DEBUG: User session is \(self.userSession?.uid)")
-    }
+        self.fetchUser()
+        }
     
     func login(withEmail email: String, password: String) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
@@ -42,9 +44,7 @@ class AuthViewModel: ObservableObject {
             
             guard let user = result?.user else { return }
 //            self.userSession = user
-            
-            print("DEBUG: Registered user successfully")
-            print("DEBUG: User is \(self.userSession)")
+            self.tempUserSession = user
             
             // make dictionary for the user's info
             // TODO: add additional parameters - ? phone number, birthday ?
@@ -53,6 +53,7 @@ class AuthViewModel: ObservableObject {
                         "fullname": fullname,
                         "uid": user.uid]
             
+            // makes a collection on firebase database - NB can also do this manually on website
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
@@ -72,7 +73,23 @@ class AuthViewModel: ObservableObject {
         try? Auth.auth().signOut()
     }
     
+    // goes into database and updates users structure
+    // then calls back to get the path to the user image
     func uploadProfileImage(_ image: UIImage) {
+        guard let uid = tempUserSession?.uid else { return }
         
+        ImageUploader.uploadImage(image: image) { profileImageUrl in
+            Firestore.firestore().collection("users")
+                .document(uid)
+                .updateData(["profileImageUrl": profileImageUrl]) { _ in
+                    self.userSession = self.tempUserSession
+                }
+        }
+    }
+    
+    func fetchUser() {
+        guard let uid = self.userSession?.uid else { return }
+        
+        service.fetchUser(withUid: uid)
     }
 }

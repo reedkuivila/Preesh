@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B3741002A82991F00AD903D /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3740FF2A82991F00AD903D /* ImageUploader.swift */; };
+		4B3741022A82D06C00AD903D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3741012A82D06C00AD903D /* UserService.swift */; };
 		4B4494CE2A69BA3100373262 /* ItemRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CD2A69BA3100373262 /* ItemRowView.swift */; };
 		4B4494D02A69BAF500373262 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CF2A69BAF500373262 /* CustomColor.swift */; };
 		4B4494D32A69C1F500373262 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494D22A69C1F500373262 /* MainTabView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		4B3740FF2A82991F00AD903D /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
+		4B3741012A82D06C00AD903D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4B4494CD2A69BA3100373262 /* ItemRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRowView.swift; sourceTree = "<group>"; };
 		4B4494CF2A69BAF500373262 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		4B4494D22A69C1F500373262 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 			isa = PBXGroup;
 			children = (
 				4B3740FF2A82991F00AD903D /* ImageUploader.swift */,
+				4B3741012A82D06C00AD903D /* UserService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B3741022A82D06C00AD903D /* UserService.swift in Sources */,
 				4B4494D82A69C4FF00373262 /* ExploreView.swift in Sources */,
 				4B4494DE2A69C53A00373262 /* ProfileView.swift in Sources */,
 				4B7E9F0F2A6EFE7100375990 /* SideBarRowView.swift in Sources */,

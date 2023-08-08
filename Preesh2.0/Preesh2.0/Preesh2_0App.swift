@@ -19,8 +19,8 @@ struct Preesh2_0App: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-//                ContentView()
-                ProfilePhotoPickerView()
+                ContentView()
+//                ProfilePhotoPickerView()
             }
             .environmentObject(viewModel)
         }
