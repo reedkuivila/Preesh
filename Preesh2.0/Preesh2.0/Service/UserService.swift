@@ -8,16 +8,24 @@
 // fetch all user data from the database
 
 import Firebase
+import FirebaseFirestoreSwift
 
 struct UserService {
     
-    func fetchUser(withUid uid: String) {
+    func fetchUser(withUid uid: String, completion: @escaping(User) -> Void) {
         Firestore.firestore().collection("users")
             .document(uid)
             .getDocument { snapshot, _ in
-                guard let data = snapshot?.data() else { return }
+                guard let snapshot = snapshot else { return }
              
-                print("DEBUG: user data is \(data)")
+                guard let user = try? snapshot.data(as: User.self) else { return }
+                completion(user)
+                
+                // print user info in the console to help debug & manage user sessions
+                print("DEBUG: username is \(user.username)")
+                print("DEBUG: email is \(user.email)")
+
+                
 
             }
     }
