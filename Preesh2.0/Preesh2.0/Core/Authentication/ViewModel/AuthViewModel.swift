@@ -56,6 +56,7 @@ class AuthViewModel: ObservableObject {
             Firestore.firestore().collection("users")
                 .document(user.uid)
                 .setData(data) { _ in
+                    // Activate the NavigationLink
                     self.didAuthenticateUser = true
                     print("DEBUG: Did upload user data ..")
                 }
