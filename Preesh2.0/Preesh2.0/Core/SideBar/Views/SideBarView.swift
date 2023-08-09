@@ -49,7 +49,7 @@ struct SideBarView: View {
                     } else if viewModel == .logout {
                         Button {
                             authViewModel.logOut()
-                            print("DEBUG: logOut button clicked")
+                            print("DEBUG: log Out button clicked")
                         } label: {
                             SideBarOptionRowView(viewModel: viewModel)
                         }

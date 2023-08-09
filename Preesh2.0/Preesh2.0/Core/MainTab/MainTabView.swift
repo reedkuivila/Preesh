@@ -14,7 +14,6 @@ struct MainTabView: View {
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
-        
         if let user = authViewModel.currentUser {
             ZStack(alignment: .bottom) {
                 TabView(selection: $selectedIndex) {

@@ -8,17 +8,20 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @ObservedObject var viewModel = ExploreViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
+                SearchBar(text: $viewModel.searchText)
                 ScrollView {
                     LazyVStack {
-                        ForEach(0...25, id: \.self) { _ in
+                        ForEach(viewModel.searchableUsers) { user in
                             NavigationLink {
-//                                ProfileView()
-//                                    .navigationBarHidden(true)
+                                ProfileView(user: user)
+                                    .navigationBarHidden(true)
                             } label: {
-                                UserRowView()
+                                UserRowView(user: user)
                             }
                         }
                     }

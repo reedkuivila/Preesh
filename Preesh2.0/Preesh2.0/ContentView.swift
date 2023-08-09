@@ -10,6 +10,8 @@ import Kingfisher
 
 struct ContentView: View {
     @State private var showMenu = false
+    @State private var showExplore = false
+    
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -57,11 +59,12 @@ extension ContentView {
                 .frame(width: 300)
                 .offset(x: showMenu ? 0: -300, y:0)
                 .background(showMenu ? Color.white : Color.clear)
-
+            
         }
         .navigationTitle("Home")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
+            // MARK: side bar pop out
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
                     withAnimation(.easeInOut) {
@@ -74,8 +77,33 @@ extension ContentView {
                             .scaledToFill()
                             .clipShape(Circle())
                             .frame(width: 32, height: 32)
+                    } else {
+                        Circle()
+                        
+                            .scaledToFill()
+                            .clipShape(Circle())
+                            .frame(width: 32, height: 32)
                     }
                 }
+            }
+            // MARK: search for users
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    withAnimation(.easeInOut) {
+                        showExplore.toggle()
+                    }
+                } label: {
+                    Image(systemName: "magnifyingglass")
+                }
+                .fullScreenCover(isPresented: $showExplore) {
+                      ExploreView()
+                          .gesture(DragGesture().onChanged { value in
+                              // Detect the downward swipe gesture and close the ExploreView
+                              if value.translation.height > 100 {
+                                  showExplore = false
+                              }
+                          })
+                  }
             }
         }
         .onAppear {
@@ -83,3 +111,4 @@ extension ContentView {
         }
     }
 }
+

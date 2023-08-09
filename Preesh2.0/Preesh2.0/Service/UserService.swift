@@ -29,4 +29,22 @@ struct UserService {
 
             }
     }
+    
+    // fetches ALL users from the database, gets their documents from the "users" collection
+    func fetchUsers(completion: @escaping([User]) -> Void) {
+        var users = [User]()
+        Firestore.firestore().collection("users")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                // new code
+                let users = documents.compactMap({ try? $0.data(as: User.self) })
+                
+//                documents.forEach { document in
+//                    guard let user = try? document.data(as: User.self) else { return }
+//                    users.append(user)
+//                }
+                
+                completion(users)
+            }
+    }
 }

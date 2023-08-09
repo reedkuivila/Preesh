@@ -9,9 +9,11 @@ import SwiftUI
 import Kingfisher
 
 struct ProfileView: View {
-    @State private var selectedFilter: ItemFilterViewModel = .savedItems
+    @State private var selectedFilter: ItemFilterViewModel = .wishList
     @Namespace var animation
     @Environment(\.presentationMode) var mode
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
     private let user: User
     
     init(user: User) {
@@ -25,19 +27,21 @@ struct ProfileView: View {
             userInfo
             filterView
             itemScrollView
-    
+            
             Spacer()
         }
+        .navigationBarHidden(true)
     }
 }
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileView(user: User(id: NSUUID().uuidString,
-                               username: "@mungus",
+                               username: "mungus",
                                fullname: "Jordan Mungus",
                                profileImageUrl: "",
                                email: "mungus@mungo.edu"))
+        .environmentObject(AuthViewModel())
     }
 }
 
@@ -68,13 +72,25 @@ extension ProfileView {
                         .offset(x: 16, y: 12)
                 }
                 
-                // add user's real profile image
-                KFImage(URL(string: user.profileImageUrl))
-                    .resizable()
-                    .scaledToFill()
-                    .clipShape(Circle())
-                    .frame(width: 72, height: 72)
-                    .offset(x:16, y: 24)
+                ZStack {
+                    // place holder for development purposes
+                    Circle()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 72, height: 72)
+                        .offset(x:16, y: 24)
+                    
+                    // add user's real profile image
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 72, height: 72)
+                        .offset(x:16, y: 24)
+                  
+                }
+                
+                
             }
             
         }
@@ -168,7 +184,7 @@ extension ProfileView {
                         Capsule()
                             .foregroundColor(Color(.clear))
                             .frame(height: 3)
-
+                        
                     }
                 }
                 .onTapGesture {
@@ -192,5 +208,5 @@ extension ProfileView {
             }
         }
     }
-
+    
 }
