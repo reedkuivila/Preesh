@@ -4,6 +4,8 @@
 //
 //  Created by reed kuivila on 7/20/23.
 //
+
+
 import SwiftUI
 
 struct MainTabView: View {
@@ -61,5 +63,6 @@ struct MainTabView: View {
 struct MainTabView_Previews: PreviewProvider {
     static var previews: some View {
         MainTabView()
+            .environmentObject(AuthViewModel())
     }
 }

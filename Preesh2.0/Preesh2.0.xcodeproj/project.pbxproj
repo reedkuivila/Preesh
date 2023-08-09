@@ -37,7 +37,6 @@
 		4B6136A52A72F59A007781A5 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B6136A42A72F59A007781A5 /* CustomInputField.swift */; };
 		4B7E9F082A6EFAFB00375990 /* UserRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F072A6EFAFB00375990 /* UserRowView.swift */; };
 		4B7E9F0D2A6EFE6300375990 /* SideBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F0C2A6EFE6300375990 /* SideBarView.swift */; };
-		4B7E9F0F2A6EFE7100375990 /* SideBarRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F0E2A6EFE7100375990 /* SideBarRowView.swift */; };
 		4B7E9F112A6EFE8100375990 /* SideBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F102A6EFE8100375990 /* SideBarViewModel.swift */; };
 		4B7E9F132A6F00AE00375990 /* UserStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F122A6F00AE00375990 /* UserStatsView.swift */; };
 		4B7E9F152A6FFF1700375990 /* SideBarOptionRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7E9F142A6FFF1700375990 /* SideBarOptionRowView.swift */; };
@@ -72,7 +71,6 @@
 		4B6136A42A72F59A007781A5 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		4B7E9F072A6EFAFB00375990 /* UserRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRowView.swift; sourceTree = "<group>"; };
 		4B7E9F0C2A6EFE6300375990 /* SideBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarView.swift; sourceTree = "<group>"; };
-		4B7E9F0E2A6EFE7100375990 /* SideBarRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarRowView.swift; sourceTree = "<group>"; };
 		4B7E9F102A6EFE8100375990 /* SideBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewModel.swift; sourceTree = "<group>"; };
 		4B7E9F122A6F00AE00375990 /* UserStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStatsView.swift; sourceTree = "<group>"; };
 		4B7E9F142A6FFF1700375990 /* SideBarOptionRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarOptionRowView.swift; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			children = (
 				4B7E9F0C2A6EFE6300375990 /* SideBarView.swift */,
 				4B7E9F142A6FFF1700375990 /* SideBarOptionRowView.swift */,
-				4B7E9F0E2A6EFE7100375990 /* SideBarRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,7 +481,6 @@
 				4B3741022A82D06C00AD903D /* UserService.swift in Sources */,
 				4B4494D82A69C4FF00373262 /* ExploreView.swift in Sources */,
 				4B4494DE2A69C53A00373262 /* ProfileView.swift in Sources */,
-				4B7E9F0F2A6EFE7100375990 /* SideBarRowView.swift in Sources */,
 				4BD1DF8D2A66E3EE0056DB38 /* ContentView.swift in Sources */,
 				4BD1DFA42A66E5D50056DB38 /* FeedView.swift in Sources */,
 				4B4494CE2A69BA3100373262 /* ItemRowView.swift in Sources */,
