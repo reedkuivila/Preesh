@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct NewItemView: View {
     @State private var caption = ""
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @ObservedObject var viewModel = AddItemViewModel()
     
     var body: some View {
         VStack {
@@ -24,6 +27,7 @@ struct NewItemView: View {
                 Spacer()
                 
                 Button {
+                    viewModel.addItem(withCaption: caption)
                     print("Add item to list")
                 } label: {
                     Text("Add item")
@@ -38,12 +42,22 @@ struct NewItemView: View {
             .padding()
             
             HStack(alignment: .top) {
-                Circle()
-                    .frame(width: 64, height: 64)
+                if let user = authViewModel.currentUser {
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 64, height: 64)
+                }
                 
                 CustomTextField("hello", text: $caption)
             }
             .padding()
+        }
+        .onReceive(viewModel.$didAddItem) { success in
+            if success {
+                presentationMode.wrappedValue.dismiss()
+            }
         }
     }
 }
@@ -51,5 +65,6 @@ struct NewItemView: View {
 struct NewItemView_Previews: PreviewProvider {
     static var previews: some View {
         NewItemView()
+            .environmentObject(AuthViewModel())
     }
 }

@@ -22,7 +22,7 @@ struct CustomTextField: View {
             
             if text.isEmpty {
                 Text(placeholder)
-                    .foregroundColor(Color(.red))
+                    .foregroundColor(Color(.placeholderText))
                     .padding(.horizontal, 8)
                     .padding(.vertical, 12)
             }
