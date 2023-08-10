@@ -9,16 +9,19 @@ import SwiftUI
 
 struct FeedView: View {
     @State private var showAddItemView = false
+    @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 LazyVStack {
-                    ForEach(0...20, id: \.self) { _ in
-                        ItemRowView()
+                    ForEach(viewModel.items) { item in
+                        ItemRowView(item: item)
                     }
                 }
             }
+            
+            // MARK: Added this button to the MainTabView
 //            Button {
 //                showAddItemView.toggle()
 //                print("search for an item")

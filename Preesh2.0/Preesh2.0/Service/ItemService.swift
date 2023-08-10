@@ -29,4 +29,13 @@ struct ItemService {
                 completion(true)
             }
     }
+    
+    func fetchItems(completion: @escaping([Item]) -> Void) {
+        Firestore.firestore().collection("items").getDocuments { snapshot, _ in
+            guard let documents = snapshot?.documents else { return }
+            let items = documents.compactMap({ try? $0.data(as: Item.self) })
+            completion(items)
+        }
+    }
 }
+

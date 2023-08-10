@@ -10,6 +10,8 @@
 import SwiftUI
 
 struct ItemRowView: View {
+    let item: Item
+    
     var body: some View {
         VStack {
             
@@ -37,7 +39,7 @@ struct ItemRowView: View {
                     }
                     
                     // item added
-                    Text("Jordan added smartwool ski socks to his wishlist")
+                    Text(item.caption)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }
@@ -80,8 +82,8 @@ struct ItemRowView: View {
     }
 }
 
-struct ItemRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        ItemRowView()
-    }
-}
+//struct ItemRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ItemRowView(item: item)
+//    }
+//}
