@@ -8,6 +8,7 @@
 // MARK: individual cell to show when a user adds an item to their list
 
 import SwiftUI
+import Kingfisher
 import Firebase
 
 struct GiftRowView: View {
@@ -17,15 +18,17 @@ struct GiftRowView: View {
         VStack {
             
             // username, profile image, item
-            HStack(alignment: .top, spacing: 12) {
-                Circle()
-                    .frame(width: 56, height: 56)
-                    .foregroundColor(Color(.systemBlue))
-                
-                // username/info & item added notification
-                VStack(alignment: .leading, spacing: 4) {
-                    // user info & timestamp
-                    if let user = gift.user {
+            if let user = gift.user {
+                HStack(alignment: .top, spacing: 12) {
+                    KFImage(URL(string: user.profileImageUrl))
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 56, height: 56)
+                        .clipShape(Circle())
+                    
+                    // username/info & item added notification
+                    VStack(alignment: .leading, spacing: 4) {
+                        // user info & timestamp
                         HStack {
                             Text(user.fullname)
                                 .font(.subheadline)
@@ -36,18 +39,16 @@ struct GiftRowView: View {
                                 .font(.caption)
                             
                             Text("\(timeAgoCalculator(gift.timestamp.dateValue()))")
-//                            Text("\(gift.timestamp)")
                                 .foregroundColor(.gray)
                                 .font(.caption)
                         }
+                        
+                        // item added
+                        Text(gift.caption)
+                            .font(.subheadline)
+                            .multilineTextAlignment(.leading)
                     }
-                    
-                    // item added
-                    Text(gift.caption)
-                        .font(.subheadline)
-                        .multilineTextAlignment(.leading)
                 }
-                
             }
             
             // user action buttons

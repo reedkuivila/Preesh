@@ -30,8 +30,6 @@ class FeedViewModel: ObservableObject {
                 }
             }
             
-            
-            
             // DEBUG: check authentication & how many gifts there are
             print("Fetched \(gifts.count) gifts")
 
