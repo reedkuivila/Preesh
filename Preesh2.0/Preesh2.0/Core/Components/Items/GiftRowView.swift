@@ -8,6 +8,7 @@
 // MARK: individual cell to show when a user adds an item to their list
 
 import SwiftUI
+import Firebase
 
 struct GiftRowView: View {
     let gift: Gift
@@ -34,7 +35,8 @@ struct GiftRowView: View {
                                 .foregroundColor(.gray)
                                 .font(.caption)
                             
-                            Text("\(gift.timestamp)")
+                            Text("\(timeAgoCalculator(gift.timestamp.dateValue()))")
+//                            Text("\(gift.timestamp)")
                                 .foregroundColor(.gray)
                                 .font(.caption)
                         }
@@ -81,6 +83,13 @@ struct GiftRowView: View {
             Divider()
         }
         .padding()
+    }
+    
+    // calculate how long ago a gift was added
+    private func timeAgoCalculator(_ date: Date) -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: date, relativeTo: Date())
     }
 }
 
