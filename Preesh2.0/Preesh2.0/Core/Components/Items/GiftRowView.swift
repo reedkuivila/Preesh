@@ -30,21 +30,17 @@ struct GiftRowView: View {
                     VStack(alignment: .leading, spacing: 4) {
                         // user info & timestamp
                         HStack {
-                            Text(user.fullname)
+                            Text("@\(user.username)")
                                 .font(.subheadline)
                                 .bold()
-                            
-                            Text("@\(user.username)")
-                                .foregroundColor(.gray)
-                                .font(.caption)
                             
                             Text("\(timeAgoCalculator(gift.timestamp.dateValue()))")
                                 .foregroundColor(.gray)
                                 .font(.caption)
                         }
                         
-                        // item added
-                        Text(gift.caption)
+                        // display the item/gift added to users wish list
+                        Text("\(user.fullname) added \(gift.caption) to their wish list")
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
                     }
@@ -94,8 +90,11 @@ struct GiftRowView: View {
     }
 }
 
-//struct ItemRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ItemRowView(item: item)
-//    }
-//}
+struct ItemRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        GiftRowView(gift: Gift(caption: "testing",
+                               timestamp: Timestamp(),
+                               uid: "reed",
+                               likes: 0))
+    }
+}
