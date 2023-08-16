@@ -8,16 +8,16 @@
 import Foundation
 
 
-class AddItemViewModel: ObservableObject {
-    @Published var didAddItem = false
+class AddGiftViewModel: ObservableObject {
+    @Published var didAddGift = false
     
-    let service = ItemService()
+    let service = GiftService()
     
-    func addItem(withCaption caption: String) {
-        service.uploadItem(caption: caption) { success in
+    func addGift(withCaption caption: String) {
+        service.uploadGift(caption: caption) { success in
             if success {
                 // dismiss the add item view
-                self.didAddItem = true
+                self.didAddGift = true
             } else {
                 // show an error message to the user
                 

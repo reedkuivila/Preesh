@@ -8,15 +8,21 @@
 import SwiftUI
 
 struct FeedView: View {
-    @State private var showAddItemView = false
+    @State private var showAddGiftView = false
     @ObservedObject var viewModel = FeedViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 LazyVStack {
-                    ForEach(viewModel.items) { item in
-                        ItemRowView(item: item)
+
+// MARK: keep for testing purposes
+//                    ForEach(0...20, id: \.self) { _ in
+//                        GiftRowView()
+                    
+                    ForEach(viewModel.gifts) { gift in
+                        GiftRowView(gift: gift)
+                            .padding()
                     }
                 }
             }

@@ -9,8 +9,8 @@
 
 import SwiftUI
 
-struct ItemRowView: View {
-    let item: Item
+struct GiftRowView: View {
+    let gift: Gift
     
     var body: some View {
         VStack {
@@ -24,22 +24,24 @@ struct ItemRowView: View {
                 // username/info & item added notification
                 VStack(alignment: .leading, spacing: 4) {
                     // user info & timestamp
-                    HStack {
-                        Text("Jordan Montour")
-                            .font(.subheadline)
-                            .bold()
-                        
-                        Text("@montour")
-                            .foregroundColor(.gray)
-                            .font(.caption)
-                        
-                        Text("8 Minutes")
-                            .foregroundColor(.gray)
-                            .font(.caption)
+                    if let user = gift.user {
+                        HStack {
+                            Text(user.fullname)
+                                .font(.subheadline)
+                                .bold()
+                            
+                            Text("@\(user.username)")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                            
+                            Text("\(gift.timestamp)")
+                                .foregroundColor(.gray)
+                                .font(.caption)
+                        }
                     }
                     
                     // item added
-                    Text(item.caption)
+                    Text(gift.caption)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                 }

@@ -1,5 +1,5 @@
 //
-//  NewItemView.swift
+//  NewGiftView.swift
 //  Preesh2.0
 //
 //  Created by reed kuivila on 7/27/23.
@@ -8,11 +8,11 @@
 import SwiftUI
 import Kingfisher
 
-struct NewItemView: View {
-    @State private var caption = ""
+struct NewGiftView: View {
+    @State private var giftName = ""
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthViewModel
-    @ObservedObject var viewModel = AddItemViewModel()
+    @ObservedObject var viewModel = AddGiftViewModel()
     
     var body: some View {
         VStack {
@@ -27,10 +27,10 @@ struct NewItemView: View {
                 Spacer()
                 
                 Button {
-                    viewModel.addItem(withCaption: caption)
-                    print("Add item to list")
+                    viewModel.addGift(withCaption: giftName)
+                    print("\(giftName) added to list")
                 } label: {
-                    Text("Add item")
+                    Text("Add Gift")
                         .bold()
                         .padding(.horizontal)
                         .padding(.vertical, 8)
@@ -50,11 +50,11 @@ struct NewItemView: View {
                         .frame(width: 64, height: 64)
                 }
                 
-                CustomTextField("hello", text: $caption)
+                CustomTextField("hello", text: $giftName)
             }
             .padding()
         }
-        .onReceive(viewModel.$didAddItem) { success in
+        .onReceive(viewModel.$didAddGift) { success in
             if success {
                 presentationMode.wrappedValue.dismiss()
             }
@@ -64,7 +64,7 @@ struct NewItemView: View {
 
 struct NewItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NewItemView()
+        NewGiftView()
             .environmentObject(AuthViewModel())
     }
 }

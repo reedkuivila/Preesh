@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MainTabView: View {
     @State private var selectedIndex = 0
-    @State private var showAddItemView = false
+    @State private var showAddGiftView = false
     @EnvironmentObject var authViewModel: AuthViewModel
 
     var body: some View {
@@ -37,8 +37,7 @@ struct MainTabView: View {
                 }
                 
                 Button {
-                    showAddItemView.toggle()
-                    print("search for an item")
+                    showAddGiftView.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
@@ -51,8 +50,8 @@ struct MainTabView: View {
                 .clipShape(Circle())
                 .offset(y: -2)
                 .padding()
-                .fullScreenCover(isPresented: $showAddItemView) {
-                    NewItemView()
+                .fullScreenCover(isPresented: $showAddGiftView) {
+                    NewGiftView()
                 }
             }
         }
