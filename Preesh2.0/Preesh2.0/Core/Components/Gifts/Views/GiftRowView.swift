@@ -13,7 +13,7 @@ import Firebase
 
 struct GiftRowView: View {
     
-    let viewModel: GiftRowViewModel
+    @ObservedObject var viewModel: GiftRowViewModel
     
     init(gift: Gift) {
         self.viewModel = GiftRowViewModel(gift: gift)
@@ -67,8 +67,9 @@ struct GiftRowView: View {
                     // TODO: add action
                     viewModel.likeGift()
                 } label: {
-                    Image(systemName: "hand.thumbsup")
+                    Image(systemName: viewModel.gift.didLike ?? false ? "hand.thumbsup.fill" : "hand.thumbsup")
                         .font(.subheadline)
+                        .foregroundColor(viewModel.gift.didLike ?? false ? Color("preeshBlue") : .blue)
                 }
                 Spacer()
                 

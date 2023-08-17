@@ -7,9 +7,8 @@
 
 import Foundation
 
-
 class GiftRowViewModel: ObservableObject {
-    let gift: Gift
+    @Published var gift: Gift
     private let service = GiftService()
     
     init(gift: Gift) {
@@ -17,6 +16,8 @@ class GiftRowViewModel: ObservableObject {
     }
     
     func likeGift() {
-        service.likeGift(gift)
+        service.likeGift(gift) { _ in
+            self.gift.didLike = true
+        }
     }
 }

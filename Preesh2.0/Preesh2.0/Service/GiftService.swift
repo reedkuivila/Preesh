@@ -63,7 +63,7 @@ struct GiftService {
             }
     }
     
-    func likeGift(_ gift: Gift) {
+    func likeGift(_ gift: Gift, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let giftId = gift.id else { return }
         
@@ -74,10 +74,9 @@ struct GiftService {
         Firestore.firestore().collection("gifts").document(giftId)
             .updateData(["likes": gift.likes + 1]) { _ in
                 userLikesRef.document(giftId).setData([:]) { _ in
-                    print("DEBUG: did like tweet")
+                    completion(true)
                 }
             }
-        
     }
 }
 
