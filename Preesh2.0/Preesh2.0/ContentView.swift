@@ -30,7 +30,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        NavigationStack {
             ContentView()
                 .environmentObject(AuthViewModel())
         }
@@ -38,76 +38,79 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
+
 extension ContentView {
     var mainScreenView: some View {
-        ZStack(alignment: .topLeading) {
-            MainTabView()
-                .navigationBarHidden(showMenu)
+        NavigationStack {
+            ZStack(alignment: .topLeading) {
+                MainTabView()
+                    .navigationBarHidden(showMenu)
+                
+                if showMenu {
+                    ZStack {
+                        Color(.black)
+                            .opacity(showMenu ? 0.25 : 0.0)
+                            .ignoresSafeArea()
+                    }.onTapGesture {
+                        withAnimation(.easeInOut) {
+                            showMenu = false
+                        }
+                    }
+                }
+                SideBarView()
+                    .frame(width: 300)
+                    .offset(x: showMenu ? 0: -300, y:0)
+                    .background(showMenu ? Color.white : Color.clear)
+                
+            }
+            .toolbarBackground(.visible, for: .navigationBar)
             
-            if showMenu {
-                ZStack {
-                    Color(.black)
-                        .opacity(showMenu ? 0.25 : 0.0)
-                        .ignoresSafeArea()
-                }.onTapGesture {
-                    withAnimation(.easeInOut) {
-                        showMenu = false
+            .toolbar {
+                // MARK: side bar pop out
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showMenu.toggle()
+                        }
+                    } label: {
+                        if let user = viewModel.currentUser {
+                            KFImage(URL(string: user.profileImageUrl))
+                                .resizable()
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 32, height: 32)
+                        } else {
+                            Circle()
+                            
+                                .scaledToFill()
+                                .clipShape(Circle())
+                                .frame(width: 32, height: 32)
+                        }
                     }
                 }
+                // MARK: search for users
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showExplore.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                    .fullScreenCover(isPresented: $showExplore) {
+                          ExploreView()
+                              .gesture(DragGesture().onChanged { value in
+                                  // Detect the downward swipe gesture and close the ExploreView
+                                  if value.translation.height > 100 {
+                                      showExplore = false
+                                  }
+                              })
+                      }
+                }
             }
-            SideBarView()
-                .frame(width: 300)
-                .offset(x: showMenu ? 0: -300, y:0)
-                .background(showMenu ? Color.white : Color.clear)
-            
+            .onAppear {
+                showMenu = false
         }
-        .navigationTitle("Home")
-        .navigationBarTitleDisplayMode(.inline)
-        .toolbar {
-            // MARK: side bar pop out
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    withAnimation(.easeInOut) {
-                        showMenu.toggle()
-                    }
-                } label: {
-                    if let user = viewModel.currentUser {
-                        KFImage(URL(string: user.profileImageUrl))
-                            .resizable()
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .frame(width: 32, height: 32)
-                    } else {
-                        Circle()
-                        
-                            .scaledToFill()
-                            .clipShape(Circle())
-                            .frame(width: 32, height: 32)
-                    }
-                }
-            }
-            // MARK: search for users
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    withAnimation(.easeInOut) {
-                        showExplore.toggle()
-                    }
-                } label: {
-                    Image(systemName: "magnifyingglass")
-                }
-                .fullScreenCover(isPresented: $showExplore) {
-                      ExploreView()
-                          .gesture(DragGesture().onChanged { value in
-                              // Detect the downward swipe gesture and close the ExploreView
-                              if value.translation.height > 100 {
-                                  showExplore = false
-                              }
-                          })
-                  }
-            }
-        }
-        .onAppear {
-            showMenu = false
         }
     }
 }

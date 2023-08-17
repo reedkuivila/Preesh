@@ -19,4 +19,5 @@ struct Gift: Identifiable, Decodable {
     var likes: Int
     
     var user: User?
+    var didLike: Bool? = false
 }

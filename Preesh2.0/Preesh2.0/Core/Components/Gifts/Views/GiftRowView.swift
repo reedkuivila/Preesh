@@ -12,18 +12,22 @@ import Kingfisher
 import Firebase
 
 struct GiftRowView: View {
-    let gift: Gift
+    
+    let viewModel: GiftRowViewModel
+    
+    init(gift: Gift) {
+        self.viewModel = GiftRowViewModel(gift: gift)
+    }
     
     var body: some View {
         VStack {
-            
             // username, profile image, item
-            if let user = gift.user {
+            if let user = viewModel.gift.user {
                 HStack(alignment: .top, spacing: 12) {
                     KFImage(URL(string: user.profileImageUrl))
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 56, height: 56)
+                        .frame(width: 64, height: 64)
                         .clipShape(Circle())
                     
                     // username/info & item added notification
@@ -34,13 +38,13 @@ struct GiftRowView: View {
                                 .font(.subheadline)
                                 .bold()
                             
-                            Text("\(timeAgoCalculator(gift.timestamp.dateValue()))")
+                            Text("\(timeAgoCalculator(viewModel.gift.timestamp.dateValue()))")
                                 .foregroundColor(.gray)
                                 .font(.caption)
                         }
                         
                         // display the item/gift added to users wish list
-                        Text("\(user.fullname) added \(gift.caption) to their wish list")
+                        Text("\(user.fullname) added \(viewModel.gift.caption.lowercased()) to their wish list")
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
                     }
@@ -48,7 +52,6 @@ struct GiftRowView: View {
             }
             
             // user action buttons
-            // folded
             HStack {
                 // comment action button
                 Button {
@@ -62,6 +65,7 @@ struct GiftRowView: View {
                 // like action button
                 Button {
                     // TODO: add action
+                    viewModel.likeGift()
                 } label: {
                     Image(systemName: "hand.thumbsup")
                         .font(.subheadline)
@@ -90,11 +94,12 @@ struct GiftRowView: View {
     }
 }
 
-struct ItemRowView_Previews: PreviewProvider {
-    static var previews: some View {
-        GiftRowView(gift: Gift(caption: "testing",
-                               timestamp: Timestamp(),
-                               uid: "reed",
-                               likes: 0))
-    }
-}
+
+//struct ItemRowView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        GiftRowView(gift: Gift(caption: "testing",
+//                               timestamp: Timestamp(),
+//                               uid: "reed",
+//                               likes: 0))
+//    }
+//}

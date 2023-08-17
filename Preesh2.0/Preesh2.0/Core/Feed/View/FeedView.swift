@@ -17,7 +17,7 @@ struct FeedView: View {
                 LazyVStack {
                     ForEach(viewModel.gifts) { gift in
                         GiftRowView(gift: gift)
-                            .padding()
+                            
                     }
                 }
             }
