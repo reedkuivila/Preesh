@@ -25,6 +25,7 @@ struct LoginView: View {
                                  placeholderText: "Email",
                                  text: $username)
                 .autocapitalization(.none)
+                .keyboardType(.emailAddress)
                 
                 CustomInputField(imageName: "lock",
                                  placeholderText: "Password",

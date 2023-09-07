@@ -9,12 +9,14 @@ import Foundation
 
 enum ItemFilterViewModel: Int, CaseIterable {
     case wishList
-    case savedItems
+//    case savedItems
+    case likedItems
     
     var title: String {
         switch self {
         case .wishList: return "Wish List"
-        case .savedItems: return "Saved Items"
+//        case .savedItems: return "Saved Gifts"
+        case .likedItems: return "Liked Gifts"
         }
     }
 }

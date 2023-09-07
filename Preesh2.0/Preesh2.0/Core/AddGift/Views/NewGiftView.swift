@@ -50,7 +50,7 @@ struct NewGiftView: View {
                         .frame(width: 64, height: 64)
                 }
                 
-                CustomTextField("hello", text: $giftName)
+                CustomTextField("What would you like to add to your wishlist?", text: $giftName)
             }
             .padding()
         }

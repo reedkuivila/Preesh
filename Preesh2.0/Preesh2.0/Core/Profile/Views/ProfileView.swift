@@ -109,7 +109,7 @@ extension ProfileView {
             Button {
                 
             } label: {
-                Text("Edit Info")
+                Text(viewModel.actionButtonTitle)
                     .font(.subheadline).bold()
                     .frame(width: 120, height: 32)
                     .overlay(RoundedRectangle(cornerRadius: 20).stroke(Color.gray, lineWidth: 0.75))
@@ -171,7 +171,7 @@ extension ProfileView {
                     Text(option.title)
                         .font(.subheadline)
                         .fontWeight(selectedFilter == option ? .semibold : .regular)
-                        .foregroundColor(selectedFilter == option ? .black : .gray)
+                        .foregroundColor(selectedFilter == option ? Color("preeshBlue") : .gray)
                     
                     if selectedFilter == option {
                         Capsule()
@@ -200,10 +200,14 @@ extension ProfileView {
     var itemScrollView: some View {
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.gifts) { gift in
+                ForEach(viewModel.gifts(forFilter: self.selectedFilter)) { gift in
                     GiftRowView(gift: gift)
                 }
             }
+        }
+        .refreshable {
+            viewModel.fetchUserGifts()
+            viewModel.fetchLikedGifts()
         }
     }
     

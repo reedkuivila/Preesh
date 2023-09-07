@@ -62,7 +62,17 @@ struct GiftService {
                 completion(gifts.sorted(by: { $0.timestamp.dateValue() > $1.timestamp.dateValue()}))
             }
     }
+}
+
+// MARK: bookmark/save friend's gifts
+
+extension GiftService {
     
+}
+
+// MARK: liking gift functions
+
+extension GiftService {
     func likeGift(_ gift: Gift, completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         guard let giftId = gift.id else { return }
@@ -78,5 +88,56 @@ struct GiftService {
                 }
             }
     }
+    
+    func unlikeGift(_ gift: Gift, completion: @escaping() -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let giftId = gift.id else { return }
+        guard gift.likes > 0 else { return }
+        
+        let userLikesRef = Firestore.firestore().collection("users").document(uid).collection("user-likes")
+        
+        Firestore.firestore().collection("gifts").document(giftId)
+            .updateData(["likes": gift.likes - 1]) { _ in
+                userLikesRef.document(giftId).delete { _ in
+                    completion()
+                }
+            }
+    }
+    
+    func checkIfUserLikedGift(_ gift: Gift, completion: @escaping(Bool) -> Void) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let giftId = gift.id else { return }
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-likes")
+            .document(giftId).getDocument { snapshot, _ in
+                guard let snapshot = snapshot else { return }
+                completion(snapshot.exists)
+            }
+    }
+    
+    func fetchLikedGifts(forUid uid: String, completion: @escaping([Gift]) -> Void) {
+        var gifts = [Gift]()
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .collection("user-likes")
+            .getDocuments { snapshot, _ in
+                guard let documents = snapshot?.documents else { return }
+                
+                documents.forEach { doc in
+                    let giftID = doc.documentID
+                    
+                    Firestore.firestore().collection("gifts")
+                        .document(giftID)
+                        .getDocument { snapshot, _ in
+                            guard let gift = try? snapshot?.data(as: Gift.self) else { return }
+                            gifts.append(gift)
+                            
+                            completion(gifts)
+                        }
+                }
+            }
+    }
 }
-

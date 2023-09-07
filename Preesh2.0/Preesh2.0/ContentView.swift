@@ -63,7 +63,7 @@ extension ContentView {
                     .background(showMenu ? Color.white : Color.clear)
                 
             }
-            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground(.clear, for: .navigationBar)
             
             .toolbar {
                 // MARK: side bar pop out

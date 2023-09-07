@@ -5,6 +5,8 @@
 //  Created by reed kuivila on 7/27/23.
 //
 
+// file for the login/sign up pages
+
 import SwiftUI
 
 struct CustomInputField: View {

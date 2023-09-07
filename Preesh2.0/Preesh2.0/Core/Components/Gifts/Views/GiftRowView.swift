@@ -65,7 +65,7 @@ struct GiftRowView: View {
                 // like action button
                 Button {
                     // TODO: add action
-                    viewModel.likeGift()
+                    viewModel.gift.didLike ?? false ? viewModel.unlikeGift() : viewModel.likeGift()
                 } label: {
                     Image(systemName: viewModel.gift.didLike ?? false ? "hand.thumbsup.fill" : "hand.thumbsup")
                         .font(.subheadline)

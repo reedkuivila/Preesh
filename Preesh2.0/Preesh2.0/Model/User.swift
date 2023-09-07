@@ -9,6 +9,7 @@
 // make sure to add info to this object as we add features (bday, address, etc)
 
 import FirebaseFirestoreSwift
+import Firebase
 
 struct User: Identifiable, Decodable {
     @DocumentID var id: String?
@@ -17,5 +18,5 @@ struct User: Identifiable, Decodable {
     let profileImageUrl: String
     let email: String
     
-    
+    var isCurrentUser: Bool { return Auth.auth().currentUser?.uid == id}
 }
