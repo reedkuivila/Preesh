@@ -21,21 +21,25 @@ class AuthViewModel: ObservableObject {
         self.userSession = Auth.auth().currentUser
         self.fetchUser()
         }
-    
-    func login(withEmail email: String, password: String) {
+  
+    func login(withEmail email: String, password: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to sign in with error \(error.localizedDescription)")
+                completion(false)
                 return
             }
-            guard let user = result?.user else { return }
+            guard let user = result?.user else {
+                completion(false)
+                return
+            }
             self.userSession = user
             self.fetchUser()
-            
             print("DEBUG: Did login with \(email)")
+            completion(true)
         }
     }
-    
+
     func register(withEmail email: String, password: String, fullname: String, username: String) {
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
             if let error = error {

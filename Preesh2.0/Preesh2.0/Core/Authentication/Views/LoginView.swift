@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var username = ""
     @State private var password = ""
+    @State private var showAlert = false
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -49,11 +50,15 @@ struct LoginView: View {
                         .padding(.trailing, 24)
                 }
             }
-            
+        
             Button {
-                viewModel.login(withEmail: username, password: password)
-                print("DEBUG: sign in clicked")
-                
+                viewModel.login(withEmail: username, password: password) { success in
+                    if success {
+                        print("DEBUG: sign in success")
+                    } else {
+                        showAlert = true
+                    }
+                }
             } label: {
                 Text("Sign In")
                     .font(.headline)
@@ -64,7 +69,7 @@ struct LoginView: View {
                     .padding()
             }
             .shadow(radius: 20)
-            
+
             Spacer()
         
             NavigationLink {
@@ -85,6 +90,9 @@ struct LoginView: View {
         }
         .ignoresSafeArea()
         .navigationBarHidden(true)
+        .alert(isPresented: $showAlert) {
+              Alert(title: Text("Authentication Failed"), message: Text("The username or password is incorrect. Please try again."), dismissButton: .default(Text("OK")))
+          }
     }
 }
 
