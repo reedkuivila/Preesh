@@ -18,7 +18,7 @@ struct FeedView: View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 LazyVStack {
-                    filterView
+//                    filterView
                     ForEach(viewModel.gifts) { gift in
                         GiftRowView(gift: gift)
                     }
