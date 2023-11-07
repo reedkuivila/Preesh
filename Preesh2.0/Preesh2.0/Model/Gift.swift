@@ -9,7 +9,7 @@ import Foundation
 import FirebaseFirestoreSwift
 import Firebase
 
-// TODO: need to add comments and bookmarks here!
+// TODO: need to add news feed comments and bookmarks here!
 
 struct Gift: Identifiable, Decodable {
     @DocumentID var id: String?
