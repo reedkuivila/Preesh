@@ -14,7 +14,7 @@ class AddGiftViewModel: ObservableObject {
     let service = GiftService()
     
     func addGift(withCaption caption: String) {
-        service.uploadGift(caption: caption) { success in
+        service.uploadGift(caption: caption, giftUrl: "test") { success in
             if success {
                 // dismiss the add item view
                 self.didAddGift = true

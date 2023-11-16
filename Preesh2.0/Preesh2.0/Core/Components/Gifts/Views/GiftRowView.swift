@@ -44,7 +44,7 @@ struct GiftRowView: View {
                         }
                         
                         // display the item/gift added to users wish list
-                        Text("\(user.fullname) added \(viewModel.gift.caption.lowercased()) to their wish list")
+                        Text("\(user.fullname) added \(viewModel.gift.caption.lowercased()) to their wish list. Check it out TEST URL")
                             .font(.subheadline)
                             .multilineTextAlignment(.leading)
                     }

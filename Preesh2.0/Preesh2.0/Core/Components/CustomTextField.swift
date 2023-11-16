@@ -36,4 +36,17 @@ struct CustomTextField: View {
     }
 }
 
+struct CustomTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            CustomTextField("Enter text...", text: .constant(""))
+                .previewLayout(.sizeThatFits)
+                .padding()
+            
+            CustomTextField("Another placeholder", text: .constant("Default text"))
+                .previewLayout(.sizeThatFits)
+                .padding()
+        }
+    }
+}
 

@@ -19,6 +19,8 @@ struct Gift: Identifiable, Decodable {
     let timestamp: Timestamp
     let uid: String
     var likes: Int
+    var imageUrl: String?
+    var giftUrl: String?
     
     /// User who posted the gift
     var user: User?

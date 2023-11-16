@@ -10,6 +10,7 @@ import Kingfisher
 
 struct NewGiftView: View {
     @State private var giftName = ""
+    @State private var giftURL = ""
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthViewModel
     @ObservedObject var viewModel = AddGiftViewModel()
@@ -50,9 +51,13 @@ struct NewGiftView: View {
                         .frame(width: 64, height: 64)
                 }
                 
-                CustomTextField("What would you like to add to your wishlist?", text: $giftName)
+                TextField("What is the name of the gift?", text: $giftName)
             }
             .padding()
+            
+            TextField("Paste a link here", text: $giftURL) // Add a TextField for the URL input
+                        .textFieldStyle(RoundedBorderTextFieldStyle()) // You can style it as needed
+                        .padding()
         }
         .onReceive(viewModel.$didAddGift) { success in
             if success {
