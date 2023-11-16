@@ -24,6 +24,7 @@
 		4B5107342A7C550C00682E8F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5107332A7C550C00682E8F /* AuthViewModel.swift */; };
 		4B549C8D2B06A8BD00DD7179 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B549C8C2B06A8BD00DD7179 /* ShareViewController.swift */; };
 		4B549C942B06A8BD00DD7179 /* PreeshShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4B549C8A2B06A8BD00DD7179 /* PreeshShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		4B549C9E2B06AF0100DD7179 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B549C9D2B06AF0100DD7179 /* MainInterface.storyboard */; };
 		4B565AC42A7C96BA00EB6621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B565AC32A7C96BA00EB6621 /* GoogleService-Info.plist */; };
 		4B565AC72A7C976600EB6621 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4B565AC62A7C976600EB6621 /* FirebaseAuth */; };
 		4B565AC92A7C976600EB6621 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4B565AC82A7C976600EB6621 /* FirebaseDatabase */; };
@@ -102,6 +103,7 @@
 		4B549C912B06A8BD00DD7179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B549C992B06ABB900DD7179 /* PreeshShareExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PreeshShareExtension.entitlements; sourceTree = "<group>"; };
 		4B549C9A2B06ABE300DD7179 /* Preesh2.0.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Preesh2.0.entitlements; sourceTree = "<group>"; };
+		4B549C9D2B06AF0100DD7179 /* MainInterface.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainInterface.storyboard; sourceTree = "<group>"; };
 		4B565AC32A7C96BA00EB6621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B6136972A72AB32007781A5 /* NewGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGiftView.swift; sourceTree = "<group>"; };
 		4B6136992A72E3D5007781A5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				4B549C992B06ABB900DD7179 /* PreeshShareExtension.entitlements */,
 				4B549C8C2B06A8BD00DD7179 /* ShareViewController.swift */,
+				4B549C9D2B06AF0100DD7179 /* MainInterface.storyboard */,
 				4B549C912B06A8BD00DD7179 /* Info.plist */,
 			);
 			path = PreeshShareExtension;
@@ -582,6 +585,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B549C9E2B06AF0100DD7179 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
