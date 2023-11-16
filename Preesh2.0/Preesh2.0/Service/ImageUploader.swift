@@ -4,8 +4,9 @@
 //
 //  Created by reed kuivila on 8/8/23.
 //
-// sole purpose of this class is to upload images - can reuse this wherever (upload gift images etc)
 
+
+// sole purpose of this class is to upload images - can reuse this wherever (upload gift images etc)
 import Firebase
 import FirebaseStorage
 import UIKit

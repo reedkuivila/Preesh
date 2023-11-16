@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4B3741002A82991F00AD903D /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3740FF2A82991F00AD903D /* ImageUploader.swift */; };
 		4B3741022A82D06C00AD903D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3741012A82D06C00AD903D /* UserService.swift */; };
-		4B3741042A82D29700AD903D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3741032A82D29700AD903D /* User.swift */; };
+		4B3741042A82D29700AD903D /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3741032A82D29700AD903D /* UserModel.swift */; };
 		4B3741072A82D92700AD903D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4B3741062A82D92700AD903D /* Kingfisher */; };
 		4B4494CE2A69BA3100373262 /* GiftRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CD2A69BA3100373262 /* GiftRowView.swift */; };
 		4B4494D02A69BAF500373262 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4494CF2A69BAF500373262 /* CustomColor.swift */; };
@@ -22,6 +22,8 @@
 		4B4DDF6F2A7D648100B0CFD8 /* ProfilePhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4DDF6E2A7D648100B0CFD8 /* ProfilePhotoPickerView.swift */; };
 		4B5107272A7BEC9800682E8F /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5107262A7BEC9800682E8F /* AuthHeaderView.swift */; };
 		4B5107342A7C550C00682E8F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5107332A7C550C00682E8F /* AuthViewModel.swift */; };
+		4B549C8D2B06A8BD00DD7179 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B549C8C2B06A8BD00DD7179 /* ShareViewController.swift */; };
+		4B549C942B06A8BD00DD7179 /* PreeshShareExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 4B549C8A2B06A8BD00DD7179 /* PreeshShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		4B565AC42A7C96BA00EB6621 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4B565AC32A7C96BA00EB6621 /* GoogleService-Info.plist */; };
 		4B565AC72A7C976600EB6621 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 4B565AC62A7C976600EB6621 /* FirebaseAuth */; };
 		4B565AC92A7C976600EB6621 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 4B565AC82A7C976600EB6621 /* FirebaseDatabase */; };
@@ -48,7 +50,7 @@
 		4BB0043E2A854A9C0024D985 /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB0043D2A854A9C0024D985 /* GiftService.swift */; };
 		4BB004402A8572E50024D985 /* AddGiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB0043F2A8572E50024D985 /* AddGiftViewModel.swift */; };
 		4BB004422A8577870024D985 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB004412A8577870024D985 /* FeedViewModel.swift */; };
-		4BB004442A85788B0024D985 /* Gift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB004432A85788B0024D985 /* Gift.swift */; };
+		4BB004442A85788B0024D985 /* GiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB004432A85788B0024D985 /* GiftModel.swift */; };
 		4BD1DF8B2A66E3EE0056DB38 /* Preesh2_0App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1DF8A2A66E3EE0056DB38 /* Preesh2_0App.swift */; };
 		4BD1DF8D2A66E3EE0056DB38 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1DF8C2A66E3EE0056DB38 /* ContentView.swift */; };
 		4BD1DF8F2A66E3EF0056DB38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1DF8E2A66E3EF0056DB38 /* Assets.xcassets */; };
@@ -56,10 +58,34 @@
 		4BD1DFA42A66E5D50056DB38 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1DFA32A66E5D50056DB38 /* FeedView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4B549C922B06A8BD00DD7179 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BD1DF7F2A66E3EE0056DB38 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B549C892B06A8BD00DD7179;
+			remoteInfo = PreeshShareExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4B442D442B05C543003625F6 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				4B549C942B06A8BD00DD7179 /* PreeshShareExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		4B3740FF2A82991F00AD903D /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		4B3741012A82D06C00AD903D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
-		4B3741032A82D29700AD903D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		4B3741032A82D29700AD903D /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		4B4494CD2A69BA3100373262 /* GiftRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftRowView.swift; sourceTree = "<group>"; };
 		4B4494CF2A69BAF500373262 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		4B4494D22A69C1F500373262 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
@@ -71,6 +97,11 @@
 		4B4DDF6E2A7D648100B0CFD8 /* ProfilePhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoPickerView.swift; sourceTree = "<group>"; };
 		4B5107262A7BEC9800682E8F /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 		4B5107332A7C550C00682E8F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		4B549C8A2B06A8BD00DD7179 /* PreeshShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PreeshShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B549C8C2B06A8BD00DD7179 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		4B549C912B06A8BD00DD7179 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4B549C992B06ABB900DD7179 /* PreeshShareExtension.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = PreeshShareExtension.entitlements; sourceTree = "<group>"; };
+		4B549C9A2B06ABE300DD7179 /* Preesh2.0.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Preesh2.0.entitlements; sourceTree = "<group>"; };
 		4B565AC32A7C96BA00EB6621 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4B6136972A72AB32007781A5 /* NewGiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGiftView.swift; sourceTree = "<group>"; };
 		4B6136992A72E3D5007781A5 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -91,7 +122,7 @@
 		4BB0043D2A854A9C0024D985 /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
 		4BB0043F2A8572E50024D985 /* AddGiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddGiftViewModel.swift; sourceTree = "<group>"; };
 		4BB004412A8577870024D985 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
-		4BB004432A85788B0024D985 /* Gift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gift.swift; sourceTree = "<group>"; };
+		4BB004432A85788B0024D985 /* GiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftModel.swift; sourceTree = "<group>"; };
 		4BD1DF872A66E3EE0056DB38 /* Preesh2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Preesh2.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BD1DF8A2A66E3EE0056DB38 /* Preesh2_0App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preesh2_0App.swift; sourceTree = "<group>"; };
 		4BD1DF8C2A66E3EE0056DB38 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -101,6 +132,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4B549C872B06A8BD00DD7179 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD1DF842A66E3EE0056DB38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -192,6 +230,16 @@
 				4B5107262A7BEC9800682E8F /* AuthHeaderView.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		4B549C8B2B06A8BD00DD7179 /* PreeshShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				4B549C992B06ABB900DD7179 /* PreeshShareExtension.entitlements */,
+				4B549C8C2B06A8BD00DD7179 /* ShareViewController.swift */,
+				4B549C912B06A8BD00DD7179 /* Info.plist */,
+			);
+			path = PreeshShareExtension;
 			sourceTree = "<group>";
 		};
 		4B6136942A72AB0C007781A5 /* AddGift */ = {
@@ -317,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD1DF892A66E3EE0056DB38 /* Preesh2.0 */,
+				4B549C8B2B06A8BD00DD7179 /* PreeshShareExtension */,
 				4BD1DF882A66E3EE0056DB38 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -325,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				4BD1DF872A66E3EE0056DB38 /* Preesh2.0.app */,
+				4B549C8A2B06A8BD00DD7179 /* PreeshShareExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +382,7 @@
 		4BD1DF892A66E3EE0056DB38 /* Preesh2.0 */ = {
 			isa = PBXGroup;
 			children = (
+				4B549C9A2B06ABE300DD7179 /* Preesh2.0.entitlements */,
 				4B4C87082A8189D000A0A0C4 /* Utils */,
 				4BD1DF982A66E4630056DB38 /* Extensions */,
 				4BD1DF9C2A66E4B40056DB38 /* Model */,
@@ -365,8 +416,8 @@
 		4BD1DF9C2A66E4B40056DB38 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4B3741032A82D29700AD903D /* User.swift */,
-				4BB004432A85788B0024D985 /* Gift.swift */,
+				4B3741032A82D29700AD903D /* UserModel.swift */,
+				4BB004432A85788B0024D985 /* GiftModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -440,6 +491,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4B549C892B06A8BD00DD7179 /* PreeshShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B549C952B06A8BD00DD7179 /* Build configuration list for PBXNativeTarget "PreeshShareExtension" */;
+			buildPhases = (
+				4B549C862B06A8BD00DD7179 /* Sources */,
+				4B549C872B06A8BD00DD7179 /* Frameworks */,
+				4B549C882B06A8BD00DD7179 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PreeshShareExtension;
+			productName = PreeshShareExtension;
+			productReference = 4B549C8A2B06A8BD00DD7179 /* PreeshShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		4BD1DF862A66E3EE0056DB38 /* Preesh2.0 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4BD1DF952A66E3EF0056DB38 /* Build configuration list for PBXNativeTarget "Preesh2.0" */;
@@ -447,10 +515,12 @@
 				4BD1DF832A66E3EE0056DB38 /* Sources */,
 				4BD1DF842A66E3EE0056DB38 /* Frameworks */,
 				4BD1DF852A66E3EE0056DB38 /* Resources */,
+				4B442D442B05C543003625F6 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				4B549C932B06A8BD00DD7179 /* PBXTargetDependency */,
 			);
 			name = Preesh2.0;
 			packageProductDependencies = (
@@ -476,6 +546,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					4B549C892B06A8BD00DD7179 = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					4BD1DF862A66E3EE0056DB38 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -499,11 +572,19 @@
 			projectRoot = "";
 			targets = (
 				4BD1DF862A66E3EE0056DB38 /* Preesh2.0 */,
+				4B549C892B06A8BD00DD7179 /* PreeshShareExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4B549C882B06A8BD00DD7179 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD1DF852A66E3EE0056DB38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,19 +598,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4B549C862B06A8BD00DD7179 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B549C8D2B06A8BD00DD7179 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4BD1DF832A66E3EE0056DB38 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4B3741022A82D06C00AD903D /* UserService.swift in Sources */,
 				4B4494D82A69C4FF00373262 /* ExploreView.swift in Sources */,
-				4BB004442A85788B0024D985 /* Gift.swift in Sources */,
+				4BB004442A85788B0024D985 /* GiftModel.swift in Sources */,
 				4B4494DE2A69C53A00373262 /* ProfileView.swift in Sources */,
 				4BD1DF8D2A66E3EE0056DB38 /* ContentView.swift in Sources */,
 				4BD1DFA42A66E5D50056DB38 /* FeedView.swift in Sources */,
 				4B4494CE2A69BA3100373262 /* GiftRowView.swift in Sources */,
 				4B4494E22A6B039A00373262 /* ItemFilterViewModel.swift in Sources */,
-				4B3741042A82D29700AD903D /* User.swift in Sources */,
+				4B3741042A82D29700AD903D /* UserModel.swift in Sources */,
 				4B4DDF6F2A7D648100B0CFD8 /* ProfilePhotoPickerView.swift in Sources */,
 				4B4494DC2A69C52300373262 /* SearchView.swift in Sources */,
 				4B7E9F132A6F00AE00375990 /* UserStatsView.swift in Sources */,
@@ -563,7 +652,67 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4B549C932B06A8BD00DD7179 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B549C892B06A8BD00DD7179 /* PreeshShareExtension */;
+			targetProxy = 4B549C922B06A8BD00DD7179 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		4B549C962B06A8BD00DD7179 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PreeshShareExtension/PreeshShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNRZCZCWSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PreeshShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PreeshShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kuivila.Preesh2-0.PreeshShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B549C972B06A8BD00DD7179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = PreeshShareExtension/PreeshShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QNRZCZCWSJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = PreeshShareExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = PreeshShareExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.kuivila.Preesh2-0.PreeshShareExtension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		4BD1DF932A66E3EF0056DB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -681,8 +830,10 @@
 		4BD1DF962A66E3EF0056DB38 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Preesh2.0/Preesh2.0.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Preesh2.0/Preview Content\"";
@@ -710,8 +861,10 @@
 		4BD1DF972A66E3EF0056DB38 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Preesh2.0/Preesh2.0.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Preesh2.0/Preview Content\"";
@@ -739,6 +892,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4B549C952B06A8BD00DD7179 /* Build configuration list for PBXNativeTarget "PreeshShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B549C962B06A8BD00DD7179 /* Debug */,
+				4B549C972B06A8BD00DD7179 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4BD1DF822A66E3EE0056DB38 /* Build configuration list for PBXProject "Preesh2.0" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
