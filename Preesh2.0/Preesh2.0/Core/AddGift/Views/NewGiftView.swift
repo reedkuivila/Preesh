@@ -25,37 +25,37 @@ struct NewGiftView: View {
     
     
     var body: some View {
-        ScrollView {
-            VStack {
-                HStack {
-                    Button {
-                        presentationMode.wrappedValue.dismiss()
-                    } label: {
-                        Text("Cancel")
-                            .foregroundColor(Color("preeshBlue"))
-                    }
-                    
-                    Spacer()
-                    
-                    Button {
-                        viewModel.addGift(withCaption: giftName,
-                                          giftUrl: giftURL,
-                                          giftDetails: giftDetails,
-                                          giftPrice: giftCost,
-                                          giftSpecifications: giftSpecs,
-                                          giftNotes: giftNotes)
-                    } label: {
-                        Text("Add Gift")
-                            .bold()
-                            .padding(.horizontal)
-                            .padding(.vertical, 8)
-                            .background(Color("preeshBlue"))
-                            .foregroundColor(.white)
-                            .clipShape(Capsule())
-                    }
+        VStack {
+            HStack {
+                Button {
+                    presentationMode.wrappedValue.dismiss()
+                } label: {
+                    Text("Cancel")
+                        .foregroundColor(Color("preeshBlue"))
                 }
-                .padding()
                 
+                Spacer()
+                
+                Button {
+                    viewModel.addGift(withCaption: giftName,
+                                      giftUrl: giftURL,
+                                      giftDetails: giftDetails,
+                                      giftPrice: giftCost,
+                                      giftSpecifications: giftSpecs,
+                                      giftNotes: giftNotes)
+                } label: {
+                    Text("Add Gift")
+                        .bold()
+                        .padding(.horizontal)
+                        .padding(.vertical, 8)
+                        .background(Color("preeshBlue"))
+                        .foregroundColor(.white)
+                        .clipShape(Capsule())
+                }
+            }
+            .padding()
+            
+            ScrollView {
                 HStack(alignment: .top) {
                     if let user = authViewModel.currentUser {
                         KFImage(URL(string: user.profileImageUrl))
@@ -78,6 +78,7 @@ struct NewGiftView: View {
                     //                TextField("What is the name of the gift?", text: $giftName)
                 }
                 .padding(.trailing, 150)
+                
                 
                 VStack(alignment: .leading) {
                     Text("Tell us the name")
@@ -102,13 +103,14 @@ struct NewGiftView: View {
                 }
                 .padding(.horizontal, 32)
                 .padding(.top, 44)
-            
+                
             }
+        }
+        
             .onReceive(viewModel.$didAddGift) { success in
                 if success {
                     presentationMode.wrappedValue.dismiss()
                 }
-        }
         }
     }
 }
