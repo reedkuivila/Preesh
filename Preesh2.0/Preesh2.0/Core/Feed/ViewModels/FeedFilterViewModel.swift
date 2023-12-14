@@ -16,6 +16,7 @@ enum FeedFilterViewModel: Int, CaseIterable {
         switch self {
         case .friends: return "Friends"
         case .discoverItems: return "Discover"
+        default: return "Unknown"
         }
     }
 }

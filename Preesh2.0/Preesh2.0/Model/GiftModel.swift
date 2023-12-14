@@ -21,10 +21,41 @@ struct Gift: Identifiable, Decodable {
     var likes: Int
     var imageUrl: String?
     var giftUrl: String?
+    var giftDetails: String?
+    var giftPrice: String?
+    var giftSpecifications: String?
+    var giftNotes: String?
     
     /// User who posted the gift
     var user: User?
     
     /// Indicates whether the current user has liked someone elses post
     var didLike: Bool? = false
+}
+
+
+extension Gift {
+    static let sampleUser = User(
+        id: "user123",
+        username: "sampleUser",
+        fullname: "Jordan Montour",
+        profileImageUrl: "https://example.com/profile.jpg",
+        email: "mungus@mungo.edu"
+    )
+
+    static let giftSample = Gift(
+        id: "gift123",
+        caption: "Elegant Wristwatch",
+        timestamp: Timestamp(date: Date()),
+        uid: "user123",
+        likes: 42,
+        imageUrl: "https://example.com/image.jpg",
+        giftUrl: "https://example.com/gift",
+        giftDetails: "A luxurious wristwatch perfect for all occasions.",
+        giftPrice: "$250",
+        giftSpecifications: "Water-resistant, Quartz movement, Sapphire crystal",
+        giftNotes: "Ideal gift for watch enthusiasts.",
+        user: sampleUser,
+        didLike: true
+    )
 }

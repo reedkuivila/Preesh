@@ -57,6 +57,7 @@
 		4BD1DF8F2A66E3EF0056DB38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1DF8E2A66E3EF0056DB38 /* Assets.xcassets */; };
 		4BD1DF922A66E3EF0056DB38 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BD1DF912A66E3EF0056DB38 /* Preview Assets.xcassets */; };
 		4BD1DFA42A66E5D50056DB38 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BD1DFA32A66E5D50056DB38 /* FeedView.swift */; };
+		4BDA478B2B2BA76700D0B331 /* GiftDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDA478A2B2BA76700D0B331 /* GiftDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		4BD1DF8E2A66E3EF0056DB38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BD1DF912A66E3EF0056DB38 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4BD1DFA32A66E5D50056DB38 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		4BDA478A2B2BA76700D0B331 /* GiftDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				4B4494CD2A69BA3100373262 /* GiftRowView.swift */,
+				4BDA478A2B2BA76700D0B331 /* GiftDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				4B61369A2A72E3D6007781A5 /* CustomTextField.swift in Sources */,
 				4B6136A52A72F59A007781A5 /* CustomInputField.swift in Sources */,
 				4B61369F2A72EEF1007781A5 /* LoginView.swift in Sources */,
+				4BDA478B2B2BA76700D0B331 /* GiftDetailView.swift in Sources */,
 				4B4494D32A69C1F500373262 /* MainTabView.swift in Sources */,
 				4B5107342A7C550C00682E8F /* AuthViewModel.swift in Sources */,
 				4B3741002A82991F00AD903D /* ImageUploader.swift in Sources */,

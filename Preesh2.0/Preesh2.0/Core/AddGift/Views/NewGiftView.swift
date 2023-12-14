@@ -11,9 +11,17 @@ import Kingfisher
 struct NewGiftView: View {
     @State private var giftName = ""
     @State private var giftURL = ""
+    @State private var giftCost = ""
+    @State private var giftSpecs = ""
+    @State private var giftNotes = ""
+    
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var authViewModel: AuthViewModel
     @ObservedObject var viewModel = AddGiftViewModel()
+    
+    let user: User
+    
+    
     
     var body: some View {
         VStack {
@@ -49,15 +57,42 @@ struct NewGiftView: View {
                         .scaledToFill()
                         .clipShape(Circle())
                         .frame(width: 64, height: 64)
+                } else {
+                    Circle()
+                        .scaledToFill()
+                        .clipShape(Circle())
+                        .frame(width: 64, height: 64)
                 }
                 
-                TextField("What is the name of the gift?", text: $giftName)
+                Text("Hi \(self.user.fullname)")
+                    .font(.headline)
+                    .padding(.top)
+                
+                //                TextField("What is the name of the gift?", text: $giftName)
             }
-            .padding()
             
-            TextField("Paste a link here", text: $giftURL) // Add a TextField for the URL input
-                        .textFieldStyle(RoundedBorderTextFieldStyle()) // You can style it as needed
-                        .padding()
+            VStack {
+                Text("Tell us the name of what you want")
+                
+                Text("Everything else is optional.")
+            }
+            
+//                .padding()
+            
+            VStack(spacing: 40) {
+                CustomInputField(imageName: "gift.circle", placeholderText: "Gift name", text: $giftName)
+                
+                CustomInputField(imageName: "link.circle", placeholderText: "Product URL", text: $giftURL)
+                
+                CustomInputField(imageName: "tag.circle", placeholderText: "Cost", text: $giftCost)
+                
+                CustomInputField(imageName: "text.bubble.fill", placeholderText: "Specifications: size, color, etc.", text: $giftSpecs)
+                
+                CustomInputField(imageName: "pencil.circle", placeholderText: "Anything else?", text: $giftNotes)
+            }
+            .padding(.horizontal, 32)
+            .padding(.top, 44)
+        
         }
         .onReceive(viewModel.$didAddGift) { success in
             if success {
@@ -69,7 +104,12 @@ struct NewGiftView: View {
 
 struct NewItemView_Previews: PreviewProvider {
     static var previews: some View {
-        NewGiftView()
-            .environmentObject(AuthViewModel())
+        NewGiftView(user: User(id: NSUUID().uuidString,
+                               username: "mungus",
+                               fullname: "Jordan Mungus",
+                               profileImageUrl: "",
+                               email: "mungus@mungo.edu"))
+        .environmentObject(AuthViewModel())
     }
 }
+

@@ -63,7 +63,7 @@ struct MainTabView: View {
                     .offset(y: -2)
                     .padding()
                     .fullScreenCover(isPresented: $showAddGiftView) {
-                        NewGiftView()
+                        NewGiftView(user: user)
                     }
                 }
             }

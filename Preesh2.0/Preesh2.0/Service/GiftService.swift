@@ -11,14 +11,20 @@ import Firebase
 struct GiftService {
     
     // add whatever needs to be grabbed from DB in this func
-    func uploadGift(caption: String, giftUrl: String, completion: @escaping(Bool) -> Void) {
+    func uploadGift(caption: String, giftUrl: String, giftDetails: String, giftPrice: String, giftSpecifications: String, giftNotes: String,
+                    completion: @escaping(Bool) -> Void) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         let data = ["uid": uid,
                     "caption": caption,
                     "likes": 0,
                     "timestamp": Timestamp(date: Date()),
-                    "giftUrl": giftUrl // Add the gift URL
+                    "giftUrl": giftUrl, // Add the gift URL
+                    "giftDetails": giftDetails,
+                    "giftPrice": giftPrice,
+                    "giftSpecifications": giftSpecifications,
+                    "giftNotes": giftNotes
+                    
         ] as [String : Any]
                 
         Firestore.firestore().collection("gifts").document()
