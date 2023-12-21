@@ -7,9 +7,21 @@
 
 import SwiftUI
 import Firebase
+import FirebaseCore
+
+class AppDelegate: NSObject, UIApplicationDelegate {
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    FirebaseApp.configure()
+
+    return true
+  }
+}
+
 
 @main
 struct Preesh2_0App: App {
+//    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @StateObject var viewModel = AuthViewModel()
     
     init() {
@@ -28,32 +40,4 @@ struct Preesh2_0App: App {
 }
 
 
-// MARK: delegate code from firebase documentation
-//
-//import SwiftUI
-//import FirebaseCore
-//
-//
-//class AppDelegate: NSObject, UIApplicationDelegate {
-//  func application(_ application: UIApplication,
-//                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-//    FirebaseApp.configure()
-//
-//    return true
-//  }
-//}
-//
-//@main
-//struct YourApp: App {
-//  // register app delegate for Firebase setup
-//  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-//
-//
-//  var body: some Scene {
-//    WindowGroup {
-//      NavigationView {
-//        ContentView()
-//      }
-//    }
-//  }
-//}
+
