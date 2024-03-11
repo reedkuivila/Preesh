@@ -15,7 +15,7 @@ struct PreeshTabView: View {
         
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
-                Text("Feed View")
+                FeedView()
                     .tabItem {
                         Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                             .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
@@ -23,7 +23,7 @@ struct PreeshTabView: View {
                     .onAppear { selectedTab = 0 }
                     .tag(0)
                 
-                Text("Profile")
+                ProfileView()
                     .tabItem {
                         Image(systemName: selectedTab == 1 ? "person.fill" : "person")
                             .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)

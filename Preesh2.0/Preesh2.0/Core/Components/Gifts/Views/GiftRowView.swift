@@ -96,11 +96,12 @@ struct GiftRowView: View {
 }
 
 
-//struct ItemRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        GiftRowView(gift: Gift(caption: "testing",
-//                               timestamp: Timestamp(),
-//                               uid: "reed",
-//                               likes: 0))
-//    }
-//}
+
+struct ItemRowView_Previews: PreviewProvider {
+    static var previews: some View {
+        GiftRowView(gift: Gift(caption: "testing",
+                               timestamp: Timestamp(),
+                               uid: "reed",
+                               likes: 0))
+    }
+}

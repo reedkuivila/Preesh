@@ -68,5 +68,6 @@ struct SideBarView: View {
 struct SideBarView_Previews: PreviewProvider {
     static var previews: some View {
         SideBarView()
+            .environmentObject(AuthViewModel())
     }
 }
