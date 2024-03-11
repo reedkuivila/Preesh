@@ -12,6 +12,7 @@ struct MainTabView: View {
     @State private var selectedIndex = 0
     @State private var showAddGiftView = false
     @EnvironmentObject var authViewModel: AuthViewModel
+    
 
     var navTitle: String {
         switch selectedIndex {
@@ -25,6 +26,7 @@ struct MainTabView: View {
     }
 
     var body: some View {
+        Text("hello")
         if let user = authViewModel.currentUser {
 
             NavigationStack {
@@ -73,9 +75,14 @@ struct MainTabView: View {
     }
 }
 
-struct MainTabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
-            .environmentObject(AuthViewModel())
-    }
-}
+//#Preview {
+//    MainTabView()
+//        .environmentObject(AuthViewModel())
+//}
+
+//struct MainTabView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainTabView()
+//            .environmentObject(AuthViewModel())
+//    }
+//}
