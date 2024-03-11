@@ -56,7 +56,10 @@ struct RegistrationView: View {
                 .padding(32)
                 
                 Button {
-                    viewModel.register(withEmail: email, password: password, fullname: fullname, username: username)
+                    viewModel.register(withEmail: email, 
+                                       password: password,
+                                       fullname: fullname,
+                                       username: username)
                     showProfilePicker = true
                     print("DEBUG: Sign up/register button clicked")
                     

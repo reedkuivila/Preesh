@@ -13,6 +13,8 @@ struct ContentView: View {
     @State private var showMenu = false
     @State private var showExplore = false
     
+    
+    
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
@@ -21,6 +23,7 @@ struct ContentView: View {
                 LoginView()
             } else {
                 mainScreenView
+    
             }
         }
     }

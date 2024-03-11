@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct LoginView: View {
     @State private var username = ""
@@ -69,6 +70,7 @@ struct LoginView: View {
                     .padding()
             }
             .shadow(radius: 20)
+            
 
             Spacer()
         
