@@ -32,6 +32,7 @@ struct PreeshTabView: View {
                     .tag(1)
                 
             }
+            .tint(Color("preeshBlue"))
                 
                 Button {
                     // TODO: add showAddGiftView.toggle()
