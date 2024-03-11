@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Kingfisher
+import Firebase
 
 struct ContentView: View {
     @State private var showMenu = false
@@ -17,12 +18,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if viewModel.userSession == nil {
-                // no user logged in, show login screen
                 LoginView()
             } else {
-                // user logged in, show main screen
-//                mainScreenView
-                LoginView()
+                mainScreenView
             }
         }
     }

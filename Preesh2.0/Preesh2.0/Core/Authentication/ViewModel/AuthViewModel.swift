@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+//import FirebaseAuth
 import Firebase
 
 class AuthViewModel: ObservableObject {
@@ -83,16 +83,18 @@ class AuthViewModel: ObservableObject {
     // then calls back to get the path to the user image
     func uploadProfileImage(_ image: UIImage) {
         guard let uid = tempUserSession?.uid else { return }
-        
+
         ImageUploader.uploadImage(image: image) { profileImageUrl in
             Firestore.firestore().collection("users")
                 .document(uid)
                 .updateData(["profileImageUrl": profileImageUrl]) { _ in
                     self.userSession = self.tempUserSession
                     self.fetchUser()
+                    // Perform any additional actions needed after successful registration
                 }
         }
     }
+
     
     func fetchUser() {
         guard let uid = self.userSession?.uid else { return }
