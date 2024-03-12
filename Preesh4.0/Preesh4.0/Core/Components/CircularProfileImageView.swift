@@ -11,7 +11,7 @@ struct CircularProfileImageView: View {
     var body: some View {
         Image(systemName: "person.fill")
             .resizable()
-            .scaledToFill()
+//            .scaledToFill()
             .clipShape(Circle())
             .frame(width: 40, height: 40)
     }
