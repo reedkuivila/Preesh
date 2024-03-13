@@ -33,11 +33,13 @@ struct PreeshTabView: View {
                     .tag(1)
                 
             }
+            .sheet(isPresented: $showNewGiftView) {
+                NewGiftView()
+            }
             .tint(Color("preeshBlue"))
                 
                 Button {
-                    // TODO: add showAddGiftView.toggle()
-//                    showNewGiftView.toggle()
+                    showNewGiftView.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
@@ -50,10 +52,6 @@ struct PreeshTabView: View {
                 .clipShape(Circle())
                 .offset(y: -2)
                 .padding()
-//                .fullScreenCover(isPresented: $showNewGiftView) {
-//                        NewGiftView()
-//                    }
-            
         }
     }
 }

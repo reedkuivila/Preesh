@@ -14,6 +14,7 @@ struct NewGiftView: View {
     @State private var giftSpecs = ""
     @State private var giftNotes = ""
     @State private var giftDetails = ""
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -43,7 +44,7 @@ struct NewGiftView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        // TODO: add action logic
+                        dismiss()
                     } label: {
                         Text("Cancel")
                             .font(.subheadline)
@@ -63,7 +64,7 @@ struct NewGiftView: View {
                             .padding(.horizontal)
                             .padding(.vertical, 8)
                             .foregroundColor(.white)
-                            .background(giftName.isEmpty ? Color(.white) : Color("preeshBlue"))
+                            .background(giftName.isEmpty ? Color("preeshBlue").opacity(0.5) : Color("preeshBlue"))
                             .clipShape(Capsule())
                     }
                 }
