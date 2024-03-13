@@ -13,7 +13,7 @@ struct GiftCell: View {
             HStack(alignment: .top, spacing: 12) {
                 CircularProfileImageView()
                 
-                VStack {
+                VStack(alignment: .leading) {
                     HStack {
                         Text("@username")
                             .font(.footnote)

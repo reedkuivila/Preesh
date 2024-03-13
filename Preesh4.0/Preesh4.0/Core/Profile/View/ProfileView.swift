@@ -93,6 +93,9 @@ struct ProfileView: View {
                 }
                 .padding(.vertical, 8)
             }
+            // NB: without this the CircularProfileImageView() is slighltly cutoff
+            .padding(.horizontal, 1)
+            .padding(.vertical, 1)
         }
         .padding()
     }

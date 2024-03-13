@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PreeshTabView: View {
     @State private var selectedTab = 0
+    @State private var showNewGiftView = false
     
     
     var body: some View {
@@ -36,6 +37,7 @@ struct PreeshTabView: View {
                 
                 Button {
                     // TODO: add showAddGiftView.toggle()
+//                    showNewGiftView.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
@@ -48,9 +50,9 @@ struct PreeshTabView: View {
                 .clipShape(Circle())
                 .offset(y: -2)
                 .padding()
-                //    .fullScreenCover(isPresented: $showAddGiftView) {
-                //        NewGiftView(user: user)
-                //    }
+//                .fullScreenCover(isPresented: $showNewGiftView) {
+//                        NewGiftView()
+//                    }
             
         }
     }
