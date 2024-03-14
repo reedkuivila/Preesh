@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State private var username = ""
-    @State private var password = ""
     @State private var showAlert = false
+    @StateObject var viewModel = LoginViewModel()
     
     var body: some View {
         // parent container VStack
@@ -25,14 +24,14 @@ struct LoginView: View {
                 VStack(spacing: 40) {
                     CustomInputField(imageName: "person",
                                      placeholderText: "Email",
-                                     text: $username)
+                                     text: $viewModel.email)
                     .autocapitalization(.none)
                     .keyboardType(.emailAddress)
                     
                     CustomInputField(imageName: "lock",
                                      placeholderText: "Password",
                                      isSecureField: true,
-                                     text: $password)
+                                     text: $viewModel.password)
                 }
                 .padding(.horizontal, 32)
                 .padding(.top, 44)
@@ -54,6 +53,7 @@ struct LoginView: View {
             
                 Button {
                     // TODO: login firebase stuff here
+                    Task { try await viewModel.login() }
                 } label: {
                     Text("Sign In")
                         .font(.headline)

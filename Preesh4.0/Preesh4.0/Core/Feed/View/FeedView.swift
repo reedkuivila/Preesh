@@ -12,7 +12,9 @@ struct FeedView: View {
     @State private var showMenu = false
     
     var body: some View {
+        
         NavigationStack {
+//            ZStack(alignment: .topLeading) {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(0...10, id: \.self) { gift in
@@ -23,37 +25,57 @@ struct FeedView: View {
                     print("DEBUG: refresh gift feed")
                 }
             }
-            .navigationTitle("Gift Feed")
-            .navigationBarTitleDisplayMode(.inline)
-        }
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "person")
-                }
-            }
             
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button {
-                    withAnimation(.easeOut) {
-                        showExplore.toggle()
+            
+
+//                    .navigationBarHidden(showMenu)
+//                
+//                if showMenu {
+//                    ZStack {
+//                        Color(.black)
+//                            .opacity(showMenu ? 0.25 : 0.0)
+//                            .ignoresSafeArea()
+//                    }.onTapGesture {
+//                        withAnimation(.easeInOut) {
+//                            showMenu = false
+//                        }
+//                    }
+//                }
+//                SideBarView()
+//                    .frame(width: 300)
+//                    .offset(x: showMenu ? 0: -300, y:0)
+//                    .background(showMenu ? Color.white : Color.clear)
+//                
+//            }
+            .toolbarBackground(.clear, for: .navigationBar)
+            .navigationTitle("test: Gift Feed")
+            .navigationBarTitleDisplayMode(.inline)
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        withAnimation(.easeInOut) {
+                            showMenu.toggle()
+                        }
+                    } label: {
+                        CircularProfileImageView(picWidth: 20, picHeight: 20)
                     }
-                } label: {
-                    Image(systemName: "magnifyingglass")
                 }
-                .fullScreenCover(isPresented: $showExplore) {
-                    ExploreView()
-                        .gesture(DragGesture().onChanged { value in
-                            if value.translation.height > 100 {
-                                showExplore = false
-                            }
-                        })
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        withAnimation(.easeOut) {
+                            showExplore.toggle()
+                        }
+                    } label: {
+                        Image(systemName: "magnifyingglass")
+                    }
+                    .sheet(isPresented: $showExplore) {
+                        ExploreView()
+                    }
                 }
             }
         }
-        
     }
 }
 

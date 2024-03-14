@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @State private var email = ""
-    @State private var username = ""
-    @State private var fullname = ""
-    @State private var password = ""
+    @StateObject var viewModel = RegistrationViewModel()
+    @State private var showAlert = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
@@ -22,19 +20,19 @@ struct RegistrationView: View {
                 // name
                 CustomInputField(imageName: "person",
                                  placeholderText: "Full name",
-                                 text: $fullname)
+                                 text: $viewModel.fullname)
                 .textInputAutocapitalization(.words)
                 
                 // username
                 CustomInputField(imageName: "person",
                                  placeholderText: "Username",
-                                 text: $username)
+                                 text: $viewModel.username)
                 .autocapitalization(.none)
                 
                 // email
                 CustomInputField(imageName: "envelope",
                                  placeholderText: "Email",
-                                 text: $email)
+                                 text: $viewModel.email)
                 .autocapitalization(.none)
                 .keyboardType(.emailAddress)
                 
@@ -42,13 +40,15 @@ struct RegistrationView: View {
                 CustomInputField(imageName: "lock",
                                  placeholderText: "Password",
                                  isSecureField: true,
-                                 text: $password)
+                                 text: $viewModel.password)
             }
             .padding(32)
             
             
             Button {
                 // TODO: add firebase registration logic
+                /// dev notes: anytime there is an async function and you call it, need to wrap it in a task & use try await
+                Task { try await viewModel.createUser() }
             } label: {
                 Text("Sign Up")
                     .font(.headline)

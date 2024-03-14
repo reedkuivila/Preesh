@@ -8,13 +8,17 @@
 import SwiftUI
 
 struct CircularProfileImageView: View {
+    var picWidth: CGFloat = 40
+    var picHeight: CGFloat = 40
+    
+    
     var body: some View {
         Image(systemName: "person.crop.circle.fill")
             .resizable()
             .foregroundColor(.gray)
 //            .scaledToFill()
             .clipShape(Circle())
-            .frame(width: 40, height: 40)
+            .frame(width: picWidth, height: picHeight)
             .overlay {
                 Circle()
                     .stroke(Color("preeshBlue"), lineWidth: 2)
