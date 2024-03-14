@@ -75,10 +75,10 @@ struct MainTabView: View {
     }
 }
 
-//#Preview {
-//    MainTabView()
-//        .environmentObject(AuthViewModel())
-//}
+#Preview {
+    MainTabView()
+
+}
 
 //struct MainTabView_Previews: PreviewProvider {
 //    static var previews: some View {

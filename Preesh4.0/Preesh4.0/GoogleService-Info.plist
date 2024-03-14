@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDvQcXovRPbPsmMYY6ct0pha-IAa2rSOJs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>100282558948</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.kuivila.Preesh4-0</string>
+	<key>PROJECT_ID</key>
+	<string>preesh-e051a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>preesh-e051a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:100282558948:ios:dd377e14b14925dfec3ff1</string>
+</dict>
+</plist>

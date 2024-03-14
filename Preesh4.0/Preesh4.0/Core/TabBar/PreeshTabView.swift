@@ -9,13 +9,14 @@ import SwiftUI
 
 struct PreeshTabView: View {
     @State private var selectedTab = 0
+    @State private var showNewGiftView = false
     
     
     var body: some View {
         
         ZStack(alignment: .bottom) {
             TabView(selection: $selectedTab) {
-                Text("Feed View")
+                FeedView()
                     .tabItem {
                         Image(systemName: selectedTab == 0 ? "house.fill" : "house")
                             .environment(\.symbolVariants, selectedTab == 0 ? .fill : .none)
@@ -23,7 +24,7 @@ struct PreeshTabView: View {
                     .onAppear { selectedTab = 0 }
                     .tag(0)
                 
-                Text("Profile")
+                ProfileView()
                     .tabItem {
                         Image(systemName: selectedTab == 1 ? "person.fill" : "person")
                             .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)
@@ -32,9 +33,13 @@ struct PreeshTabView: View {
                     .tag(1)
                 
             }
+            .sheet(isPresented: $showNewGiftView) {
+                NewGiftView()
+            }
+            .tint(Color("preeshBlue"))
                 
                 Button {
-                    // TODO: add showAddGiftView.toggle()
+                    showNewGiftView.toggle()
                 } label: {
                     Image(systemName: "plus")
                         .resizable()
@@ -47,10 +52,6 @@ struct PreeshTabView: View {
                 .clipShape(Circle())
                 .offset(y: -2)
                 .padding()
-                //    .fullScreenCover(isPresented: $showAddGiftView) {
-                //        NewGiftView(user: user)
-                //    }
-            
         }
     }
 }
