@@ -14,7 +14,6 @@ struct FeedView: View {
     var body: some View {
         
         NavigationStack {
-//            ZStack(alignment: .topLeading) {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
                     ForEach(0...10, id: \.self) { gift in
@@ -25,38 +24,15 @@ struct FeedView: View {
                     print("DEBUG: refresh gift feed")
                 }
             }
-            
-            
-
-//                    .navigationBarHidden(showMenu)
-//                
-//                if showMenu {
-//                    ZStack {
-//                        Color(.black)
-//                            .opacity(showMenu ? 0.25 : 0.0)
-//                            .ignoresSafeArea()
-//                    }.onTapGesture {
-//                        withAnimation(.easeInOut) {
-//                            showMenu = false
-//                        }
-//                    }
-//                }
-//                SideBarView()
-//                    .frame(width: 300)
-//                    .offset(x: showMenu ? 0: -300, y:0)
-//                    .background(showMenu ? Color.white : Color.clear)
-//                
-//            }
             .toolbarBackground(.clear, for: .navigationBar)
-            .navigationTitle("test: Gift Feed")
+            .navigationTitle("Gift Feed")
             .navigationBarTitleDisplayMode(.inline)
             
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        withAnimation(.easeInOut) {
-                            showMenu.toggle()
-                        }
+                        // TODO: add side menu functionality
+                        
                     } label: {
                         CircularProfileImageView(picWidth: 20, picHeight: 20)
                     }

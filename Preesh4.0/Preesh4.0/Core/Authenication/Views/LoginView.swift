@@ -52,7 +52,6 @@ struct LoginView: View {
                 }
             
                 Button {
-                    // TODO: login firebase stuff here
                     Task { try await viewModel.login() }
                 } label: {
                     Text("Sign In")
