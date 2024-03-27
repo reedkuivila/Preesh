@@ -8,9 +8,15 @@
 import SwiftUI
 
 struct ProfileView: View {
+    @StateObject var viewModel = ProfileViewModel()
     @State private var selectedFilter: ProfileFilter = .wishList
     @Namespace var animation
         
+    
+    private var currentUser: User? {
+        return viewModel.currentUser
+    }
+    
     var body: some View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
@@ -20,17 +26,22 @@ struct ProfileView: View {
                         VStack(alignment: .leading, spacing: 12) {
                             // name and username
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("Jordan Montour")
+                                Text(currentUser?.fullname ?? "")
                                     .font(.title2)
                                     .fontWeight(.semibold)
                                 
-                                Text("@montour")
+                                Text(currentUser?.username ?? "")
                                     .font(.subheadline)
                                 
                             }
                             // user bio
-                            Text("Cast iron enthusiast. Krukon emeritus")
-                                .font(.footnote)
+                            if let bio = currentUser?.bio {
+                                Text(bio)
+                                    .font(.footnote)
+                            } else {
+                                Text("Add a bio here")
+                                    .font(.footnote)
+                            }
                             
                             Text("13 Friends")
                                 .font(.caption)
