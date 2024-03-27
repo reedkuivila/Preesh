@@ -48,9 +48,9 @@ struct UserRowView: View {
 
 #Preview {
     UserRowView(user: User(id: "",
-                           username: "mungus",
-                           fullname: "Jordan Mungus",
-                           profileImageUrl: "",
-                           email: "mungus@mungo.edu"))
+                           fullname: "mungus",
+                           email: "Jordan Mungus",
+                           username: "",
+                           profileImageUrl: "mungus@mungo.edu"))
     
 }
