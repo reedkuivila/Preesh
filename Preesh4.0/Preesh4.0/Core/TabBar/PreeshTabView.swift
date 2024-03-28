@@ -24,7 +24,7 @@ struct PreeshTabView: View {
                     .onAppear { selectedTab = 0 }
                     .tag(0)
                 
-                ProfileView()
+                CurrentUserProfileView()
                     .tabItem {
                         Image(systemName: selectedTab == 1 ? "person.fill" : "person")
                             .environment(\.symbolVariants, selectedTab == 1 ? .fill : .none)

@@ -23,8 +23,9 @@ import Foundation
 
 
 // new struct for preesh 4.0 created on 3/27/24
-
-struct User: Identifiable, Codable {
+/// NB: anytime there is a navigation link that has a value based navigation, you have to make the object that is
+/// set as the value conforms ot the hashable protocol
+struct User: Identifiable, Codable, Hashable{
     let id: String
     let fullname: String
     let email: String

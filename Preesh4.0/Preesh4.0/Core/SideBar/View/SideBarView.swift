@@ -28,7 +28,7 @@ struct SideBarView: View {
             ForEach(SideBarViewModel.allCases, id: \.rawValue) { viewModel in
                 if viewModel == .profile {
                     NavigationLink {
-                        ProfileView()
+                        CurrentUserProfileView()
                             .navigationBarHidden(true)
                     } label: {
                         SideBarOptionRowView(viewModel: viewModel)

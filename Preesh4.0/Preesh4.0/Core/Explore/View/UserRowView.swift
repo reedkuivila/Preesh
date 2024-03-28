@@ -47,10 +47,10 @@ struct UserRowView: View {
 
 
 #Preview {
-    UserRowView(user: User(id: "",
+    UserRowView(user: User(id: NSUUID().uuidString,
                            fullname: "mungus",
                            email: "Jordan Mungus",
-                           username: "",
+                           username: "@mungus",
                            profileImageUrl: "mungus@mungo.edu"))
     
 }

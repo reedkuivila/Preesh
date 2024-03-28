@@ -8,24 +8,21 @@
 import SwiftUI
 
 struct ExploreView: View {
+    @State private var searchText = ""
+    @StateObject var viewModel = ExploreViewModel()
+    
     var body: some View {
         NavigationView {
             VStack {
-                SearchBar(text: .constant(""))
+                SearchBar(text: $searchText)
                 ScrollView {
                     LazyVStack {
                         // TODO: add for each and put user data here
-                        ForEach(0...10, id: \.self) { user in
-                            VStack {
-                                HStack {
-                                    UserRowView(user: User(id: "",
-                                                           fullname: "mungus",
-                                                           email: "Jordan Mungus",
-                                                           username: "",
-                                                           profileImageUrl: "mungus@mungo.edu"))
-                                }
-                                .padding(.horizontal)
-                                Divider()
+                        ForEach(viewModel.users) { user in
+                            NavigationLink {
+                                ProfileView(user: user)
+                            } label: {
+                                UserRowView(user: user)
                             }
                         }
                     }
