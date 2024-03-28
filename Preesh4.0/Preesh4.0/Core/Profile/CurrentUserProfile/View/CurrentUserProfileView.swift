@@ -11,6 +11,7 @@ struct CurrentUserProfileView: View {
     @StateObject var viewModel = CurrentUserProfileViewModel()
     // DEBUG this is new for the sheet isPresented for settings
     @State private var showSettings = false
+    @State private var showEdit = false
     
     private var currentUser: User? {
         return viewModel.currentUser
@@ -27,7 +28,7 @@ struct CurrentUserProfileView: View {
                     HStack {
                         // follow button
                         Button {
-                            // TODO: add action here
+                            showEdit.toggle()
                         } label: {
                             Text("Edit Profile")
                                 .font(.subheadline)
@@ -57,23 +58,31 @@ struct CurrentUserProfileView: View {
                 .padding(.horizontal, 1)
                 .padding(.vertical, 1)
             }
+            
+            // sheet for edit profile page
+            .sheet(isPresented: $showEdit, content: {
+                EditProfileView()
+                    .environmentObject(viewModel)
+            })
+            
+            // sheet for settings page
+            .sheet(isPresented: $showSettings, content: {
+                SettingsView()
+            })
+            
+            // toolbar for current profile to allow for settings icon
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         showSettings.toggle()
-                        //                        AuthService.shared.signOut()
                     } label : {
                         Image(systemName: "gearshape")
                     }
                 }
             }
+            // padding on left of name/username and on right of profile image
             .padding()
         }
-        // DEBUG this is new, the gear alone used to log out the user
-        .sheet(isPresented: $showSettings, content: {
-            SettingsView()
-        })
-        
     }
 }
 

@@ -71,6 +71,8 @@
 		4BF465C82BB60E4500BD00E6 /* CurrentUserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465C72BB60E4500BD00E6 /* CurrentUserProfileView.swift */; };
 		4BF465CC2BB615F900BD00E6 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465CB2BB615F900BD00E6 /* ProfileHeaderView.swift */; };
 		4BF465CE2BB617DB00BD00E6 /* UserContentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465CD2BB617DB00BD00E6 /* UserContentListView.swift */; };
+		4BF465D12BB6265E00BD00E6 /* EditProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465D02BB6265D00BD00E6 /* EditProfileViewModel.swift */; };
+		4BF465D32BB6290E00BD00E6 /* ImageUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465D22BB6290E00BD00E6 /* ImageUploader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +114,8 @@
 		4BF465C72BB60E4500BD00E6 /* CurrentUserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileView.swift; sourceTree = "<group>"; };
 		4BF465CB2BB615F900BD00E6 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		4BF465CD2BB617DB00BD00E6 /* UserContentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContentListView.swift; sourceTree = "<group>"; };
+		4BF465D02BB6265D00BD00E6 /* EditProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewModel.swift; sourceTree = "<group>"; };
+		4BF465D22BB6290E00BD00E6 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				4BF465B82BB4DBC500BD00E6 /* UserService.swift */,
+				4BF465D22BB6290E00BD00E6 /* ImageUploader.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -438,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				4B4AFFCC2BA0FBDB0083D7B9 /* View */,
+				4BF465CF2BB6265500BD00E6 /* ViewModel */,
 			);
 			path = EditProfile;
 			sourceTree = "<group>";
@@ -498,6 +504,14 @@
 				4BF465CD2BB617DB00BD00E6 /* UserContentListView.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		4BF465CF2BB6265500BD00E6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4BF465D02BB6265D00BD00E6 /* EditProfileViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -608,6 +622,7 @@
 				4BF465B92BB4DBC500BD00E6 /* UserService.swift in Sources */,
 				4B4AFFC02B9FAE830083D7B9 /* SearchBar.swift in Sources */,
 				4B4A000B2BA20E510083D7B9 /* RegistrationViewModel.swift in Sources */,
+				4BF465D32BB6290E00BD00E6 /* ImageUploader.swift in Sources */,
 				4BF465C82BB60E4500BD00E6 /* CurrentUserProfileView.swift in Sources */,
 				4B4A001A2BA295E30083D7B9 /* SideBarViewModel.swift in Sources */,
 				4BF465BC2BB4DCAD00BD00E6 /* CurrentUserProfileViewModel.swift in Sources */,
@@ -632,6 +647,7 @@
 				4B4AFF882B9F92840083D7B9 /* Preesh4_0App.swift in Sources */,
 				4BF465CE2BB617DB00BD00E6 /* UserContentListView.swift in Sources */,
 				4B4A00132BA23F160083D7B9 /* ContentViewModel.swift in Sources */,
+				4BF465D12BB6265E00BD00E6 /* EditProfileViewModel.swift in Sources */,
 				4B4AFFC72B9FB5150083D7B9 /* CircularProfileImageView.swift in Sources */,
 				4B4AFFC42B9FB2430083D7B9 /* UserModel.swift in Sources */,
 				4B4AFFAA2B9F9E480083D7B9 /* PreeshTabView.swift in Sources */,

@@ -7,6 +7,8 @@
 
 import Foundation
 import Combine
+import PhotosUI
+import SwiftUI
 
 class CurrentUserProfileViewModel: ObservableObject {
     @Published var currentUser: User?
@@ -19,8 +21,6 @@ class CurrentUserProfileViewModel: ObservableObject {
     private func setupSubscribers() {
         UserService.shared.$currentUser.sink { [weak self] user in
             self?.currentUser = user
-//            print("DEBUG: user in view model from comnbine is \(user)")
-            
         }.store(in: &cancellables)
     }
 }
