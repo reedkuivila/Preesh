@@ -34,7 +34,7 @@ struct FeedView: View {
                         // TODO: add side menu functionality
                         
                     } label: {
-                        CircularProfileImageView(picWidth: 20, picHeight: 20)
+                        CircularProfileImageView(user: nil, size: .small)
                     }
                 }
                 

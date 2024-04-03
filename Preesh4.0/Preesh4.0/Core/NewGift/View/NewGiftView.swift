@@ -20,7 +20,7 @@ struct NewGiftView: View {
         NavigationStack {
             VStack {
                 HStack {
-                    CircularProfileImageView()
+                    CircularProfileImageView(user: nil, size: .small)
                     Text("Hi Jordan")
                         .fontWeight(.semibold)
                 }

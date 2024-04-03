@@ -61,8 +61,9 @@ struct CurrentUserProfileView: View {
             
             // sheet for edit profile page
             .sheet(isPresented: $showEdit, content: {
-                EditProfileView()
-                    .environmentObject(viewModel)
+                if let user = currentUser {
+                    EditProfileView(user: user)
+                }
             })
             
             // sheet for settings page

@@ -13,7 +13,7 @@ struct SideBarView: View {
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 4) {
-                CircularProfileImageView(picWidth: 30, picHeight: 30)
+                CircularProfileImageView(user: nil, size: .small)
 
                 Text("Jordan Montour")
                     .font(.headline)

@@ -15,7 +15,7 @@ struct UserRowView: View {
     var body: some View {
         VStack {
             HStack {
-                CircularProfileImageView()
+                CircularProfileImageView(user: user, size: .small)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(user.fullname)
