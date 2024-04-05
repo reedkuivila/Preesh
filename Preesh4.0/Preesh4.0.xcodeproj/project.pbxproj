@@ -64,6 +64,9 @@
 		4B4AFFFB2BA20B670083D7B9 /* FirebaseMLModelDownloader in Frameworks */ = {isa = PBXBuildFile; productRef = 4B4AFFFA2BA20B670083D7B9 /* FirebaseMLModelDownloader */; };
 		4B4AFFFD2BA20B670083D7B9 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4B4AFFFC2BA20B670083D7B9 /* FirebaseMessaging */; };
 		4B4AFFFF2BA20B670083D7B9 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 4B4AFFFE2BA20B670083D7B9 /* FirebasePerformance */; };
+		4B7404FE2BC096410046A51F /* GiftModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7404FD2BC096410046A51F /* GiftModel.swift */; };
+		4B7405012BC097C30046A51F /* NewGiftViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405002BC097C30046A51F /* NewGiftViewModel.swift */; };
+		4B7405032BC097D70046A51F /* GiftService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7405022BC097D70046A51F /* GiftService.swift */; };
 		4BF465B92BB4DBC500BD00E6 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465B82BB4DBC500BD00E6 /* UserService.swift */; };
 		4BF465BC2BB4DCAD00BD00E6 /* CurrentUserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465BB2BB4DCAD00BD00E6 /* CurrentUserProfileViewModel.swift */; };
 		4BF465BF2BB5FE4900BD00E6 /* ExploreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF465BE2BB5FE4900BD00E6 /* ExploreViewModel.swift */; };
@@ -107,6 +110,9 @@
 		4B4AFFC92BA0F4220083D7B9 /* ProfileFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFilter.swift; sourceTree = "<group>"; };
 		4B4AFFCD2BA0FBE80083D7B9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		4B4AFFCF2BA20A0B0083D7B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4B7404FD2BC096410046A51F /* GiftModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftModel.swift; sourceTree = "<group>"; };
+		4B7405002BC097C30046A51F /* NewGiftViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGiftViewModel.swift; sourceTree = "<group>"; };
+		4B7405022BC097D70046A51F /* GiftService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftService.swift; sourceTree = "<group>"; };
 		4BF465B82BB4DBC500BD00E6 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4BF465BB2BB4DCAD00BD00E6 /* CurrentUserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserProfileViewModel.swift; sourceTree = "<group>"; };
 		4BF465BE2BB5FE4900BD00E6 /* ExploreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewModel.swift; sourceTree = "<group>"; };
@@ -292,6 +298,7 @@
 		4B4AFF992B9F92AB0083D7B9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4B7404FD2BC096410046A51F /* GiftModel.swift */,
 				4B4AFFC32B9FB2430083D7B9 /* UserModel.swift */,
 			);
 			path = Model;
@@ -300,8 +307,9 @@
 		4B4AFF9A2B9F92F90083D7B9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				4BF465B82BB4DBC500BD00E6 /* UserService.swift */,
+				4B7405022BC097D70046A51F /* GiftService.swift */,
 				4BF465D22BB6290E00BD00E6 /* ImageUploader.swift */,
+				4BF465B82BB4DBC500BD00E6 /* UserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -412,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				4B4AFFB82B9FA54E0083D7B9 /* View */,
+				4B7404FF2BC097AE0046A51F /* ViewModel */,
 			);
 			path = NewGift;
 			sourceTree = "<group>";
@@ -456,6 +465,14 @@
 				4B4AFFCD2BA0FBE80083D7B9 /* EditProfileView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		4B7404FF2BC097AE0046A51F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4B7405002BC097C30046A51F /* NewGiftViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		4BF465BD2BB5FE3B00BD00E6 /* ViewModel */ = {
@@ -626,11 +643,13 @@
 				4BF465B92BB4DBC500BD00E6 /* UserService.swift in Sources */,
 				4B4AFFC02B9FAE830083D7B9 /* SearchBar.swift in Sources */,
 				4B4A000B2BA20E510083D7B9 /* RegistrationViewModel.swift in Sources */,
+				4B7405032BC097D70046A51F /* GiftService.swift in Sources */,
 				4BF465D32BB6290E00BD00E6 /* ImageUploader.swift in Sources */,
 				4BF465C82BB60E4500BD00E6 /* CurrentUserProfileView.swift in Sources */,
 				4B4A001A2BA295E30083D7B9 /* SideBarViewModel.swift in Sources */,
 				4BF465BC2BB4DCAD00BD00E6 /* CurrentUserProfileViewModel.swift in Sources */,
 				4B4AFFBC2B9FA6140083D7B9 /* ExploreView.swift in Sources */,
+				4B7404FE2BC096410046A51F /* GiftModel.swift in Sources */,
 				4B4A00182BA295830083D7B9 /* SideBarView.swift in Sources */,
 				4B4AFFBA2B9FA55E0083D7B9 /* NewGiftView.swift in Sources */,
 				4B4A00202BA29CB90083D7B9 /* LoginViewModel.swift in Sources */,
@@ -649,6 +668,7 @@
 				4B4AFFA72B9F9AC60083D7B9 /* RegistrationView.swift in Sources */,
 				4B4AFF8A2B9F92840083D7B9 /* ContentView.swift in Sources */,
 				4B4AFF882B9F92840083D7B9 /* Preesh4_0App.swift in Sources */,
+				4B7405012BC097C30046A51F /* NewGiftViewModel.swift in Sources */,
 				4BF465CE2BB617DB00BD00E6 /* UserContentListView.swift in Sources */,
 				4B4A00132BA23F160083D7B9 /* ContentViewModel.swift in Sources */,
 				4BF465D12BB6265E00BD00E6 /* EditProfileViewModel.swift in Sources */,
