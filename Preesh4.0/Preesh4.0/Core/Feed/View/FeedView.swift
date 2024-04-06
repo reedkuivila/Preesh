@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct FeedView: View {
+    @StateObject var viewModel = FeedViewModel()
+    
     @State private var showExplore = false
     @State private var showMenu = false
     
@@ -16,13 +19,14 @@ struct FeedView: View {
         NavigationStack {
             ScrollView(showsIndicators: false) {
                 LazyVStack {
-                    ForEach(0...10, id: \.self) { gift in
-                        GiftCell()
+                    ForEach(viewModel.gifts) { gift in
+                        GiftCell(gift: gift)
                     }
                 }
-                .refreshable {
-                    print("DEBUG: refresh gift feed")
-                }
+            }
+            .refreshable {
+                Task { try await viewModel.fetchGifts() }
+                print("DEBUG: refresh gift feed")
             }
             .toolbarBackground(.clear, for: .navigationBar)
             .navigationTitle("Gift Feed")

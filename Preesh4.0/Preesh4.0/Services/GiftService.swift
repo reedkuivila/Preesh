@@ -17,4 +17,15 @@ struct GiftService {
         try await Firestore.firestore().collection("gifts").addDocument(data: giftData)   
     }
     
+    static func fetchGifts() async throws -> [Gift] {
+        let snapshot = try await Firestore
+            .firestore()
+            .collection("gifts")
+            .order(by: "timestamp", descending: true)
+            .getDocuments()
+        
+        return snapshot.documents.compactMap({ try? $0.data(as: Gift.self) })
+    }
+    
+    
 }

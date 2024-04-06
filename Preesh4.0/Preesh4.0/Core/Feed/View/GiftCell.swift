@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct GiftCell: View {
+    let gift: Gift
+    
     var body: some View {
         VStack {
             HStack(alignment: .top, spacing: 12) {
-                CircularProfileImageView(user: nil, size: .small)
+                CircularProfileImageView(user: gift.user, size: .small)
                 
                 VStack(alignment: .leading) {
                     HStack {
-                        Text("@username")
+                        Text("@\(gift.user?.username ?? "")")
                             .font(.footnote)
                             .fontWeight(.semibold)
                         
@@ -26,7 +29,7 @@ struct GiftCell: View {
                             .font(.caption)
                     }
                     
-                    Text("Montour added cast iron pan to his wish lsit.")
+                    Text(gift.giftName)
                         .font(.subheadline)
                         .multilineTextAlignment(.leading)
                     
@@ -75,5 +78,8 @@ struct GiftCell: View {
 }
 
 #Preview {
-    GiftCell()
+    GiftCell(gift: Gift(ownerUid: "123",
+                        giftName: "test gift",
+                        timestamp: Timestamp(),
+                        likes: 0))
 }

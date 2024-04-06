@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct UserContentListView: View {
     @State private var selectedFilter: ProfileFilter = .wishList
@@ -45,7 +46,10 @@ struct UserContentListView: View {
             
             LazyVStack {
                 ForEach(0...19, id: \.self) { gift in
-                    GiftCell()
+                    GiftCell(gift: Gift(ownerUid: "123",
+                                  giftName: "test gift",
+                                  timestamp: Timestamp(),
+                                  likes: 0))
                 }
             }
         }

@@ -6,19 +6,25 @@
 //
 
 import SwiftUI
+import Firebase
 
 extension PreviewProvider {
-    static var dev: MontourProfilePreview {
-        return MontourProfilePreview.shared
+    static var dev: DeveloperPreview{
+        return DeveloperPreview.shared
     }
 }
 
-class MontourProfilePreview {
-    static let shared = MontourProfilePreview()
+class DeveloperPreview {
+    static let shared = DeveloperPreview()
     
     let user = User(id: "",
                     fullname: "mungus",
                     email: "Jordan Mungus",
                     username: "@mungus",
                     profileImageUrl: "mungus@mungo.edu")
+    
+    let gift = Gift(ownerUid: "123", 
+                    giftName: "test gift",
+                    timestamp: Timestamp(),
+                    likes: 0)
 }

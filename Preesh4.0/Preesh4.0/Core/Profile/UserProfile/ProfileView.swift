@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 /// Profile view for profiles that are not the current user. differences outlines below
     ///  only shares the profile owners wishlist, not bookmarks
@@ -73,7 +74,7 @@ extension ProfileView {
             
             LazyVStack {
                 ForEach(0...19, id: \.self) { gift in
-                    GiftCell()
+//                    GiftCell(gift: gift)
                 }
             }
         }
