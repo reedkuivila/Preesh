@@ -11,7 +11,7 @@ import FirebaseFirestoreSwift
 ///NB: any time something is going to be displayed in a list we
 /// want it to be identifiable
 struct Gift: Identifiable, Codable {
-    @DocumentID var giftId: String?
+    @DocumentID private var giftId: String?
     
     let ownerUid: String
     let giftName: String

@@ -17,6 +17,7 @@ class NewGiftViewModel: ObservableObject {
     
     func uploadGift(giftName: String) async throws {
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        
         let gift = Gift(
             ownerUid: uid,
             giftName: giftName,
