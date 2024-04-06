@@ -21,12 +21,16 @@ struct NewGiftView: View {
     
     @Environment(\.dismiss) var dismiss
     
+    private var user: User? {
+        return UserService.shared.currentUser
+    }
+    
     var body: some View {
         NavigationStack {
             VStack {
                 HStack {
-                    CircularProfileImageView(user: nil, size: .small)
-                    Text("Hi Jordan")
+                    CircularProfileImageView(user: user, size: .small)
+                    Text("Hi \(user?.fullname.components(separatedBy: " ").first ?? "")")
                         .fontWeight(.semibold)
                 }
                     VStack(spacing: 40) {
@@ -62,7 +66,10 @@ struct NewGiftView: View {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button {
                         // TODO: add logic to add this to user database
-                        Task { try await viewModel.uploadGift(giftName: giftName)}
+                        Task {
+                            try await viewModel.uploadGift(giftName: giftName)
+                            dismiss()
+                        }
                     } label: {
                         Text("Add Gift")
                             .font(.subheadline)
