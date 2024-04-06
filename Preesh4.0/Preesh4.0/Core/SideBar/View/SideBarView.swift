@@ -13,7 +13,7 @@ struct SideBarView: View {
     var body: some View {
         VStack(alignment: .leading) {
             VStack(alignment: .leading, spacing: 4) {
-                CircularProfileImageView(picWidth: 30, picHeight: 30)
+                CircularProfileImageView(user: nil, size: .small)
 
                 Text("Jordan Montour")
                     .font(.headline)
@@ -28,7 +28,7 @@ struct SideBarView: View {
             ForEach(SideBarViewModel.allCases, id: \.rawValue) { viewModel in
                 if viewModel == .profile {
                     NavigationLink {
-                        ProfileView()
+                        CurrentUserProfileView()
                             .navigationBarHidden(true)
                     } label: {
                         SideBarOptionRowView(viewModel: viewModel)

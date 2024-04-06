@@ -15,7 +15,7 @@ struct UserRowView: View {
     var body: some View {
         VStack {
             HStack {
-                CircularProfileImageView()
+                CircularProfileImageView(user: user, size: .small)
                 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(user.fullname)
@@ -47,10 +47,10 @@ struct UserRowView: View {
 
 
 #Preview {
-    UserRowView(user: User(id: "",
-                           username: "mungus",
-                           fullname: "Jordan Mungus",
-                           profileImageUrl: "",
-                           email: "mungus@mungo.edu"))
+    UserRowView(user: User(id: NSUUID().uuidString,
+                           fullname: "mungus",
+                           email: "Jordan Mungus",
+                           username: "@mungus",
+                           profileImageUrl: "mungus@mungo.edu"))
     
 }

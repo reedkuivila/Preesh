@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct EditProfileView: View {
+    let user: User
+    
     @State private var bio = ""
     @State private var birthday = ""
     @State private var address = ""
     @State private var isPrivate = false
+    @Environment(\.dismiss) var dismiss
+    @StateObject var viewModel = EditProfileViewModel()
     
     var body: some View {
         NavigationStack {
@@ -26,11 +31,22 @@ struct EditProfileView: View {
                             Text("Name")
                                 .fontWeight(.semibold)
                             
-                            Text("Jordan Montour")
+                            Text(user.fullname)
                         }
                         Spacer()
                         
-                        CircularProfileImageView()
+                        PhotosPicker(selection: $viewModel.selectedItem) {
+                            if let image = viewModel.profileImage {
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 40, height: 40)
+                                    .clipShape(Circle())
+                            } else {
+                                CircularProfileImageView(user: user, size: .small)
+                            }
+                        }
+                        
                         
                     }
                     Divider()
@@ -86,7 +102,7 @@ struct EditProfileView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel") {
-                        // TODO: add action
+                        dismiss()
                     }
                     .font(.subheadline)
                     .foregroundColor(.black)
@@ -94,7 +110,9 @@ struct EditProfileView: View {
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        // TODO: add action
+                        Task { try await viewModel.updateUserData()
+                            dismiss()
+                        }
                     }
                     .font(.subheadline)
                     .fontWeight(.semibold)
@@ -106,5 +124,9 @@ struct EditProfileView: View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: User(id: "",
+                               fullname: "mungus",
+                               email: "Jordan Mungus",
+                               username: "@mungus",
+                               profileImageUrl: "mungus@mungo.edu"))
 }
